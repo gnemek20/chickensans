@@ -78,6 +78,7 @@ export default function Home() {
       <div
         className={style.sidebar}
       >
+        {/* 스크롤바 컴포넌트 제작 */}
       </div>
       <div
         className={style.container}
@@ -92,6 +93,7 @@ export default function Home() {
             <div
               className={style.section}
               key={index}
+              style={{height: pageHeight !== 0 ? pageHeight : '100vh'}}
             >
               <Section />
             </div>
