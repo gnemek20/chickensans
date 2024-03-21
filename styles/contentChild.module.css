@@ -11,7 +11,8 @@
 .container img {
   object-fit: contain;
   object-position: bottom;
-  width: 100%;
+  margin-left: auto;
+  width: 90%;
   height: 100%;
 }
 
@@ -21,6 +22,6 @@
   }
   .container img {
     margin-left: auto;
-    width: 85%;
+    width: 80%;
   }
 }
