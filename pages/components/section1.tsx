@@ -1,3 +1,5 @@
+import { Background } from ".";
+
 const section1 = () => {
   return (
     <div>
