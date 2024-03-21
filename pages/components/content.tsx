@@ -10,7 +10,11 @@ const content = (props: componentProps) => {
     <div
       className={style.container}
     >
-      { props.children?? props.children }
+      <div
+        className={style.wrapper}
+      >
+        { props.children?? props.children }
+      </div>
     </div>
   )
 }

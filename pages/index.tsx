@@ -1,5 +1,5 @@
 import style from "@/styles/Home.module.css";
-import { Section1, Section2 } from "./components";
+import { Header, Section1, Section2 } from "./components";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
@@ -80,6 +80,7 @@ export default function Home() {
       >
         {/* 헤더 컴포넌트 제작 */}
       </div>
+      <Header></Header>
       <div
         className={style.sidebar}
       >

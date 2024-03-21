@@ -6,17 +6,19 @@
   bottom: 40px;
   width: 30px;
   height: 30px;
-  animation: upAndDown 1500ms ease-in-out infinite;
+  animation: upAndDownPC 1500ms ease-in-out infinite;
   filter: invert(1);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .arrowDown {
-    left: 30px;
+    transform: translateY(-50%);
+    left: 25px;
+    animation-name: upAndDownMobile;
   }
 }
 
-@keyframes upAndDown {
+@keyframes upAndDownPC {
   0% {
     transform: translate(-50%, -50%);
   }
@@ -25,5 +27,17 @@
   }
   100% {
     transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes upAndDownMobile {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
   }
 }
