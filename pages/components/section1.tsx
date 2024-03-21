@@ -1,5 +1,6 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { Background, Content, EmphasizeScroll } from ".";
+import { Background, Content, ContentChild, EmphasizeScroll } from ".";
+import Image from "next/image";
 import style from "@/styles/section1.module.css";
 
 const section1 = () => {
@@ -9,8 +10,13 @@ const section1 = () => {
   }
 
   const backgroundImage: imageProps = {
-    src: require("@/public/next.svg"),
-    alt: "backgroundImage"
+    src: require('@/public/images/jean.jpg'),
+    alt: 'backgroundImage'
+  }
+
+  const logoImage: imageProps = {
+    src: require('@/public/logo.png'),
+    alt: 'logoImage'
   }
 
   return (
@@ -21,8 +27,18 @@ const section1 = () => {
       >
       </Background>
       <Content>
-        <p>section 1</p>
-        <p>chicks</p>
+        <ContentChild>
+          <h1>지퍼와 단추</h1>
+          <h1>제작을</h1>
+          <h1>고민중일때!</h1>
+          <p>배고프다</p>
+        </ContentChild>
+        <ContentChild>
+          <Image
+            src={logoImage.src}
+            alt={logoImage.alt}
+          ></Image>
+        </ContentChild>
       </Content>
       <EmphasizeScroll></EmphasizeScroll>
     </>
