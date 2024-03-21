@@ -1,10 +1,16 @@
 import style from "@/styles/Home.module.css";
+import { Section1, Section2 } from "./components";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   type direction = 'up' | 'down';
 
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const sectionList: Array<() => JSX.Element> = [
+    Section1,
+    Section2
+  ]
 
   const [pageHeight, setPageHeight] = useState<number>(0);
 
@@ -30,7 +36,7 @@ export default function Home() {
     if (isMoving) return;
 
     const firstSectionNumber: number = 0;
-    const lastSectionNumber: number = 2;
+    const lastSectionNumber: number = sectionList.length - 1;
     let nextSectionNumber: number = firstSectionNumber;
     
     if (direction === 'up') {
@@ -81,21 +87,16 @@ export default function Home() {
         onWheel={classifyWheelDirection}
         onTransitionEnd={() => setIsMoving(false)}
       >
-        <div
-          className={style.section}
-        >
-          page1
-        </div>
-        <div
-          className={style.section}
-        >
-          page2
-        </div>
-        <div
-          className={style.section}
-        >
-          page3
-        </div>
+        {
+          sectionList.map((Section, index) => (
+            <div
+              className={style.section}
+              key={index}
+            >
+              <Section />
+            </div>
+          ))
+        }
       </div>
     </>
   );
