@@ -1,6 +1,6 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
-import style from "@/styles/emphasizeScroll.module.css";
+import style from "@/styles/components/emphasizeScroll.module.css";
 
 const emphasizeScroll = () => {
   interface imageProps {

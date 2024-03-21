@@ -1,8 +1,13 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { Background, Content, ContentChild, EmphasizeScroll } from ".";
+import { Background, Content, ContentChild, EmphasizeScroll } from "../components";
+import style from "@/styles/sections/main.module.css";
 import Image from "next/image";
 
-const section1 = () => {
+interface componentProps {
+  moveToLastSection: Function
+}
+
+const main = (props: componentProps) => {
   interface imageProps {
     src: StaticImport,
     alt: string
@@ -30,8 +35,16 @@ const section1 = () => {
           <h1>지퍼와 단추</h1>
           <h1>제작을</h1>
           <h1>고민 중일 때</h1>
-          <p>배고프다</p>
-          <p>저녁 메뉴 추천받아요</p>
+          <div
+            className={style.contact}
+          >
+            <p>망설이지 말고</p>
+            <button
+              onClick={() => props.moveToLastSection()}
+            >
+              연락하기
+            </button>
+          </div>
         </ContentChild>
         <ContentChild>
           <Image
@@ -45,4 +58,4 @@ const section1 = () => {
   )
 }
 
-export default section1;
+export default main;

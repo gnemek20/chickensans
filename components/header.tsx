@@ -1,4 +1,4 @@
-import style from '@/styles/header.module.css';
+import style from '@/styles/components/header.module.css';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 

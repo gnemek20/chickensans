@@ -1,4 +1,4 @@
-import style from '@/styles/contentChild.module.css';
+import style from '@/styles/components/contentChild.module.css';
 import { ReactNode } from 'react';
 
 interface componentProps {

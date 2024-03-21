@@ -1,15 +1,22 @@
 import style from "@/styles/Home.module.css";
-import { Header, Section1, Section2 } from "../components";
+import { Header } from "@/components";
+import { Contact, Main, Map, Zipper } from "@/sections";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   type direction = 'up' | 'down';
 
+  interface componentProps {
+    moveToLastSection: Function
+  }
+
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const sectionList: Array<() => JSX.Element> = [
-    Section1,
-    Section2
+  const sectionList: Array<(props: componentProps) => JSX.Element> = [
+    Main,
+    Zipper,
+    Map,
+    Contact
   ]
 
   const [pageHeight, setPageHeight] = useState<number>(0);
@@ -55,6 +62,12 @@ export default function Home() {
   const moveSection = (height: number, index: number) => {
     const section = height * index;
     containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
+  }
+  const moveToLastSection = () => {
+    const lastSectionIndex: number = sectionList.length - 1;
+    const section: number = pageHeight * lastSectionIndex;
+    containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
+    setCurrentSectionNumber(lastSectionIndex);
   }
 
   const resizePageHeight = () => {
@@ -103,7 +116,9 @@ export default function Home() {
                 height: pageHeight !== 0 ? pageHeight : '100vh'
               }}
             >
-              <Section />
+              <Section
+                moveToLastSection={moveToLastSection}
+              />
             </div>
           ))
         }
