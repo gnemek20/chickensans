@@ -1,5 +1,5 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { Background, Content } from ".";
+import { Background, Content, EmphasizeScroll } from ".";
 import style from "@/styles/section1.module.css";
 
 const section1 = () => {
@@ -24,6 +24,7 @@ const section1 = () => {
         <p>section 1</p>
         <p>chicks</p>
       </Content>
+      <EmphasizeScroll></EmphasizeScroll>
     </>
   )
 }

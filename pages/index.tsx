@@ -76,6 +76,11 @@ export default function Home() {
   return (
     <>
       <div
+        className={style.header}
+      >
+        {/* 헤더 컴포넌트 제작 */}
+      </div>
+      <div
         className={style.sidebar}
       >
         {/* 스크롤바 컴포넌트 제작 */}

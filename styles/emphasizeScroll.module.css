@@ -1,0 +1,23 @@
+.arrowDown {
+  z-index: 10;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  bottom: 12%;
+  width: 30px;
+  height: 30px;
+  animation: upAndDown 1500ms ease-in-out infinite;
+  filter: invert(1);
+}
+
+@keyframes upAndDown {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, 0);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
