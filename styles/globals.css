@@ -6,6 +6,10 @@
   outline: none;
 }
 
+.flex {
+  display: flex;
+}
+
 body {
   overflow-y: hidden;
 }

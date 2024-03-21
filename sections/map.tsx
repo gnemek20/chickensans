@@ -14,6 +14,8 @@ const map = () => {
 
   const [isMapOpened, setIsMapOpened] = useState<boolean>(false);
 
+  const addressUrl = 'https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%A2%85%EB%A1%9C%EA%B5%AC%20%EA%B9%80%EC%83%81%EC%98%A5%EB%A1%9C%2059/address/14138072.9066057,4519365.2427951,%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%A2%85%EB%A1%9C%EA%B5%AC%20%EA%B9%80%EC%83%81%EC%98%A5%EB%A1%9C%2059,new?searchType=address&isCorrectAnswer=true&c=18.25,0,0,0,dh';
+
   const backgroundImage: imageProps = {
     src: require('@/public/images/tshirt.jpg'),
     alt: 'backgroundImage'
@@ -61,7 +63,14 @@ const map = () => {
           <div
             className={style.address}
           >
-            <p>주소: 서울특별시 종로구 김상옥로 59, 한아빌딩 3층</p>
+            <div className="flex">
+              <p
+                className={style.url}
+                onClick={() => window.open(addressUrl)}
+              >
+                주소: 서울특별시 종로구 김상옥로 59, 한아빌딩 3층
+              </p>
+            </div>
             <button
               onClick={() => setIsMapOpened(!isMapOpened)}
             >
