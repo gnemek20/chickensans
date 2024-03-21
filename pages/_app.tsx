@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Script
         type="text/javascript"
         strategy="beforeInteractive"
-        src="https://openapi.amp.naver.com/openapi/v3/maps.js?ncpClientId=6kbpgfbf8d"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=6kbpgfbf8d"
       ></Script>
       <Component {...pageProps} />
     </>

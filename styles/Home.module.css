@@ -4,7 +4,6 @@
 
 .container {
   transition: all 500ms;
-  touch-action: none;
 }
 .container > .section {
   position: relative;

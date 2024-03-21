@@ -38,7 +38,7 @@ const main = (props: componentProps) => {
           <div
             className={style.contact}
           >
-            <p>망설이지 말고</p>
+            <h2>망설이지 말고</h2>
             <button
               onClick={() => props.moveToLastSection()}
             >

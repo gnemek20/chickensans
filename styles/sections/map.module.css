@@ -1,0 +1,36 @@
+.map {
+  margin-top: auto;
+  max-height: 400px;
+  height: 100%;
+  border: 10px solid;
+  border-radius: 10px;
+  background: none !important;
+  transition: all 500ms;
+}
+.address {
+  margin-top: 20px;
+}
+.address button {
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 10px 30px;
+  background-color: transparent;
+  color: white;
+  font-size: calc(12px + 0.7cqi);
+  font-weight: bold;
+  border: 2px solid white;
+  border-radius: 10px;
+  transition: all 250ms;
+}
+.address button:hover {
+  filter: invert(0.6);
+}
+
+@media screen and (max-width: 767px) {
+  .address {
+    margin-top: 10px;
+  }
+  .address button {
+    margin-top: 5px;
+  }
+}
