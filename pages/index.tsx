@@ -70,6 +70,10 @@ export default function Home() {
     setCurrentSectionNumber(lastSectionIndex);
   }
 
+  const changeIsMovingStatus = (event: React.TransitionEvent<HTMLDivElement>) => {
+    if (event.target === containerRef.current) setIsMoving(false);
+  }
+
   const resizePageHeight = () => {
     const pageHeight = window.innerHeight;
     setPageHeight(pageHeight);
@@ -100,7 +104,7 @@ export default function Home() {
         onTouchStart={recordTouchedY}
         onTouchMove={classifyDragDirection}
         onWheel={classifyWheelDirection}
-        onTransitionEnd={() => setIsMoving(false)}
+        onTransitionEnd={(event) => changeIsMovingStatus(event)}
       >
         {
           sectionList.map((Section, index) => (
