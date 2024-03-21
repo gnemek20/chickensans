@@ -20,4 +20,8 @@
   .container h1 {
     font-size: calc(36px + 1.5cqi);
   }
+  .container img {
+    margin-left: auto;
+    width: 85%;
+  }
 }
