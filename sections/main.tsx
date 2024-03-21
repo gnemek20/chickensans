@@ -19,7 +19,7 @@ const main = (props: componentProps) => {
   }
 
   const logoImage: imageProps = {
-    src: require('@/public/logo.png'),
+    src: require('@/public/subLogo.png'),
     alt: 'logoImage'
   }
 

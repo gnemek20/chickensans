@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -9,11 +10,14 @@
   font-size: calc(16px + 0.7cqi);
 }
 .container img {
-  object-fit: contain;
-  object-position: bottom;
-  margin-left: auto;
+  position: absolute;
+  right: 0;
+  min-width: 260px;
+  min-height: 190.5px;
   width: 90%;
   height: 100%;
+  object-fit: contain;
+  object-position: right bottom;
 }
 
 @media screen and (max-width: 767px) {
@@ -21,7 +25,6 @@
     font-size: calc(36px + 1.5cqi);
   }
   .container img {
-    margin-left: auto;
     width: 80%;
   }
 }
