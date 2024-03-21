@@ -3,11 +3,17 @@
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
-  bottom: 12%;
+  bottom: 40px;
   width: 30px;
   height: 30px;
   animation: upAndDown 1500ms ease-in-out infinite;
   filter: invert(1);
+}
+
+@media screen and (max-width: 768px) {
+  .arrowDown {
+    left: 30px;
+  }
 }
 
 @keyframes upAndDown {
