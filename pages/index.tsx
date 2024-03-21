@@ -93,7 +93,9 @@ export default function Home() {
             <div
               className={style.section}
               key={index}
-              style={{height: pageHeight !== 0 ? pageHeight : '100vh'}}
+              style={{
+                height: pageHeight !== 0 ? pageHeight : '100vh'
+              }}
             >
               <Section />
             </div>

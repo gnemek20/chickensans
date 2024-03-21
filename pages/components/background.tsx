@@ -9,7 +9,7 @@ interface componentProps {
 
 const background = (props: componentProps) => {
   return (
-    <div>
+    <>
       <Image
         className={style.image}
         src={props.src}
@@ -18,7 +18,7 @@ const background = (props: componentProps) => {
       <div
         className={style.dimmed}
       ></div>
-    </div>
+    </>
   )
 }
 
