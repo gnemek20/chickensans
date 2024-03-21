@@ -1,4 +1,4 @@
-import { Background, Content, ContentChild } from "@/components";
+import { Background, Content, ContentChild, EmphasizeScroll } from "@/components";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useEffect, useRef, useState } from "react";
 import style from "@/styles/sections/map.module.css";
@@ -77,6 +77,7 @@ const map = () => {
           ></div>
         </ContentChild>
       </Content>
+      <EmphasizeScroll></EmphasizeScroll>
     </>
   )
 }
