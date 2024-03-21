@@ -88,11 +88,6 @@ export default function Home() {
 
   return (
     <>
-      <div
-        className={style.header}
-      >
-        {/* 헤더 컴포넌트 제작 */}
-      </div>
       <Header></Header>
       <div
         className={style.sidebar}
