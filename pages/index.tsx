@@ -1,5 +1,5 @@
 import style from "@/styles/Home.module.css";
-import { Header, Section1, Section2 } from "./componentList";
+import { Header, Section1, Section2 } from "./components";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
