@@ -15,10 +15,13 @@
   padding: 18% 75px;
   display: flex;
 }
+.wrapper > * {
+  flex: 1;
+}
 
 @media screen and (max-width: 767px) {
   .wrapper {
-    padding: 36% 25px 28%;
+    padding: 36% 25px 26%;
     flex-direction: column;
   }
 }

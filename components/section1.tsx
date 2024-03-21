@@ -29,8 +29,9 @@ const section1 = () => {
         <ContentChild>
           <h1>지퍼와 단추</h1>
           <h1>제작을</h1>
-          <h1>고민중일때!</h1>
+          <h1>고민 중일 때</h1>
           <p>배고프다</p>
+          <p>저녁 메뉴 추천받아요</p>
         </ContentChild>
         <ContentChild>
           <Image
