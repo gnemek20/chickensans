@@ -16,3 +16,12 @@
 .contact button:hover {
   filter: invert(0.6);
 }
+
+@media screen and (max-width: 767px) {
+  .contact {
+    margin-top: 5px;
+  }
+  .contact button {
+    margin-top: 5px;
+  }
+}
