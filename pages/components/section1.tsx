@@ -1,5 +1,5 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { Background, Content, ContentChild, EmphasizeScroll } from ".";
+import { Background, Content, ContentChild, EmphasizeScroll } from "../componentList";
 import Image from "next/image";
 
 const section1 = () => {
