@@ -23,7 +23,7 @@
   }
 }
 
-@media (hover: hover) {
+@media (hover:hover) {
   .contact button:hover {
     filter: invert(0.6);
   }
