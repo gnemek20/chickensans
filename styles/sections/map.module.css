@@ -26,9 +26,6 @@
   border-radius: 10px;
   transition: all 250ms;
 }
-.address button:hover {
-  filter: invert(0.6);
-}
 
 @media screen and (max-width: 767px) {
   .address {
@@ -36,5 +33,11 @@
   }
   .address button {
     margin-top: 5px;
+  }
+}
+
+@media (hover: hover) {
+  .address button:hover {
+    filter: invert(0.6);
   }
 }

@@ -13,9 +13,6 @@
   border-radius: 10px;
   transition: all 250ms;
 }
-.contact button:hover {
-  filter: invert(0.6);
-}
 
 @media screen and (max-width: 767px) {
   .contact {
@@ -23,5 +20,11 @@
   }
   .contact button {
     margin-top: 5px;
+  }
+}
+
+@media (hover: hover) {
+  .contact button:hover {
+    filter: invert(0.6);
   }
 }
