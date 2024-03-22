@@ -36,7 +36,7 @@
   }
 }
 
-@media (hover: hover) {
+@media (hover:hover) {
   .address button:hover {
     filter: invert(0.6);
   }
