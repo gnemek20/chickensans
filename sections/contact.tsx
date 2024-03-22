@@ -1,4 +1,4 @@
-import { Background, Content, ContentChild, Footer, Notifier } from "@/components";
+import { Background, Content, ContentChild, Footer, Header, Notifier } from "@/components";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import style from "@/styles/sections/contact.module.css";
@@ -40,6 +40,7 @@ const contact = (props: componentProps) => {
 
   return (
     <>
+      <Header></Header>
       <Notifier
         isShowing={isNotifierShowing}
         onAnimationEnd={setIsNotifierShowing}

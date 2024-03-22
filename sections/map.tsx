@@ -1,4 +1,4 @@
-import { Background, Content, ContentChild, EmphasizeScroll } from "@/components";
+import { Background, Content, ContentChild, EmphasizeScroll, Header } from "@/components";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useEffect, useRef, useState } from "react";
 import style from "@/styles/sections/map.module.css";
@@ -56,6 +56,7 @@ const map = (props: componentProps) => {
 
   return (
     <>
+      <Header></Header>
       <Background
         src={backgroundImage.src}
         alt={backgroundImage.alt}

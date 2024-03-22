@@ -1,5 +1,5 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { Background, Content, ContentChild, EmphasizeScroll } from "../components";
+import { Background, Content, ContentChild, EmphasizeScroll, Header } from "../components";
 import style from "@/styles/sections/main.module.css";
 import Image from "next/image";
 
@@ -25,6 +25,7 @@ const main = (props: componentProps) => {
 
   return (
     <>
+      <Header></Header>
       <Background
         src={backgroundImage.src}
         alt={backgroundImage.alt}

@@ -99,7 +99,6 @@ export default function Home() {
 
   return (
     <>
-      <Header></Header>
       <div
         className={style.sidebar}
       >
