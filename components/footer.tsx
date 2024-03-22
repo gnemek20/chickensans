@@ -58,8 +58,8 @@ const footer = (props: componentProps) => {
             className={style.information}
           >
             <div>
-              <p>사업자번호: 1234</p>
-              <p>통신판매업: 서울</p>
+              <p>사업자번호: 123-45-67890</p>
+              <p>통신판매업: 서울 치킨-1234</p>
             </div>
             <div>
               <p>전화번호: 010-3744-3084</p>
