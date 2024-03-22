@@ -87,7 +87,7 @@ const map = (props: componentProps) => {
             className={style.map}
             id="map"
             ref={mapRef}
-            onTouchStart={() => props.changeIsMovingLockedStatus(true)}
+            onTouchStart={() => isMapOpened && props.changeIsMovingLockedStatus(true)}
             onTouchEnd={() => props.changeIsMovingLockedStatus(false)}
           ></div>
         </ContentChild>
