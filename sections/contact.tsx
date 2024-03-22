@@ -44,7 +44,7 @@ const contact = (props: componentProps) => {
               >
               <h2
                 className={style.wrapper}
-                onClick={() => props.isMobile ? window.open('tel:010-3744-3084') : null}
+                onClick={() => props.isMobile ? window.open('tel:010-3744-3084', '_self') : null}
               >
                 TEL: 010-3744-3084
               </h2>
