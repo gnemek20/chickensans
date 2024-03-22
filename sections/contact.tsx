@@ -33,6 +33,8 @@ const contact = (props: componentProps) => {
   const emailAddr: string = 'example@gmail.com';
 
   const copyEmailAddr = () => {
+    if (isNotifierShowing) return;
+
     navigator.clipboard.writeText(`${emailAddr}`);
     setIsNotifierShowing(true);
   }
