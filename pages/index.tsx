@@ -37,7 +37,7 @@ export default function Home() {
     setTouchStartY(event.touches[0].clientY);
   }
   const classifyDragDirection = (event: React.TouchEvent<HTMLDivElement>) => {
-    const offset: number = 50;
+    const offset: number = 30;
     const movedTouchY: number = event.touches[0].clientY;
 
     if (touchStartY > (movedTouchY + offset)) changeSection('down');
