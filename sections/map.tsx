@@ -37,7 +37,7 @@ const map = (props: componentProps) => {
   }, [isMapOpened]);
 
   useEffect(() => {
-    if (window.innerWidth >= 768) setIsMapOpened(true);
+    // if (window.innerWidth >= 768) setIsMapOpened(true);
 
     const dy_location: { latitude: number, longtitude: number } = {
       latitude: 37.57360,
