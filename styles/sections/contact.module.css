@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .method {
+  .container {
     margin-top: 5px;
     gap: 5px;
   }

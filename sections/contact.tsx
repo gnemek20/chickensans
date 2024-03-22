@@ -1,8 +1,8 @@
-import { Background, Content, ContentChild, Footer } from "@/components";
+import { Background, Content, ContentChild, Footer, Notifier } from "@/components";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import style from "@/styles/sections/contact.module.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 interface componentProps {
   isMobile: boolean
@@ -26,8 +26,26 @@ const contact = (props: componentProps) => {
 
   const footerRef = useRef<HTMLDivElement>(null);
 
+  const [isNotifierShowing, setIsNotifierShowing] = useState<boolean>(false);
+
+  const telNumber: string = '010-3744-3084';
+  const kakaoLink: string = 'https://open.kakao.com/o/sgqi929f';
+  const emailAddr: string = 'example@gmail.com';
+
+  const copyEmailAddr = () => {
+    navigator.clipboard.writeText(`${emailAddr}`);
+    setIsNotifierShowing(true);
+  }
+
+
   return (
     <>
+      <Notifier
+        isShowing={isNotifierShowing}
+        onAnimationEnd={setIsNotifierShowing}
+      >
+        복사 완료
+      </Notifier>
       <Background
         src={backgroundImage.src}
         alt={backgroundImage.alt}
@@ -44,9 +62,9 @@ const contact = (props: componentProps) => {
               >
               <h2
                 className={style.wrapper}
-                onClick={() => props.isMobile ? window.open('tel:010-3744-3084', '_self') : null}
+                onClick={() => props.isMobile ? window.open(`tel:${telNumber}`, '_self') : null}
               >
-                TEL: 010-3744-3084
+                TEL: { telNumber }
               </h2>
             </div>
             <div
@@ -54,9 +72,19 @@ const contact = (props: componentProps) => {
             >
               <h2
                 className={style.wrapper}
-                onClick={() => window.open('https://open.kakao.com/o/sgqi929f')}
+                onClick={() => window.open(`${kakaoLink}`)}
               >
-                KAKAO: 채팅방
+                KAKAO: 오픈채팅방
+              </h2>
+            </div>
+            <div
+              className="flex"
+            >
+              <h2
+                className={style.wrapper}
+                onClick={copyEmailAddr}
+              >
+                EMAIL: { emailAddr }
               </h2>
             </div>
           </div>
