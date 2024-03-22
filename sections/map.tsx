@@ -3,7 +3,11 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useEffect, useRef, useState } from "react";
 import style from "@/styles/sections/map.module.css";
 
-const map = () => {
+interface componentProps {
+  changeIsMovingLockedStatus: Function
+}
+
+const map = (props: componentProps) => {
   interface imageProps {
     src: StaticImport,
     alt: string
@@ -83,6 +87,8 @@ const map = () => {
             className={style.map}
             id="map"
             ref={mapRef}
+            onTouchStart={() => props.changeIsMovingLockedStatus(true)}
+            onTouchEnd={() => props.changeIsMovingLockedStatus(false)}
           ></div>
         </ContentChild>
       </Content>

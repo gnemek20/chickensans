@@ -8,6 +8,7 @@ export default function Home() {
 
   interface componentProps {
     moveToLastSection: Function,
+    changeIsMovingLockedStatus: Function,
     isMobile: boolean
   }
 
@@ -26,6 +27,7 @@ export default function Home() {
   const [touchStartY, setTouchStartY] = useState<number>(0);
   const [currentSectionNumber, setCurrentSectionNumber] = useState<number>(0);
   const [isMoving, setIsMoving] = useState<boolean>(false);
+  const [isMovingLocked, setIsMovingLocked] = useState<boolean>(false);
 
   const classifyWheelDirection = (event: React.WheelEvent<HTMLDivElement>) => {
     if (event.deltaY > 0) changeSection('down');
@@ -42,7 +44,7 @@ export default function Home() {
     else if (touchStartY < (movedTouchY - offset)) changeSection('up');
   }
   const changeSection = (direction: direction) => {
-    if (isMoving) return;
+    if (isMoving || isMovingLocked) return;
 
     const firstSectionNumber: number = 0;
     const lastSectionNumber: number = sectionList.length - 1;
@@ -122,6 +124,7 @@ export default function Home() {
             >
               <Section
                 moveToLastSection={moveToLastSection}
+                changeIsMovingLockedStatus={setIsMovingLocked}
                 isMobile={pageWidth <= 767 ? true : false}
               />
             </div>
