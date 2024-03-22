@@ -9,7 +9,7 @@ const emphasizeScroll = () => {
   }
 
   const arrowDownImage: imageProps = {
-    src: require('@/public/icons/arrowDown.svg'),
+    src: require('@/public/icons/arrow.svg'),
     alt: 'arrowDownImage'
   }
 

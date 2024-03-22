@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>DY ING</title>
+        <title>대양ING</title>
       </Head>
       <Script
         type="text/javascript"

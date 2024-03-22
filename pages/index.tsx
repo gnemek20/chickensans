@@ -7,7 +7,8 @@ export default function Home() {
   type direction = 'up' | 'down';
 
   interface componentProps {
-    moveToLastSection: Function
+    moveToLastSection: Function,
+    isMobile: boolean
   }
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -19,6 +20,7 @@ export default function Home() {
     Contact
   ]
 
+  const [pageWidth, setPageWidth] = useState<number>(0);
   const [pageHeight, setPageHeight] = useState<number>(0);
 
   const [touchStartY, setTouchStartY] = useState<number>(0);
@@ -75,7 +77,10 @@ export default function Home() {
   }
 
   const resizePageHeight = () => {
+    const pageWidth = window.innerWidth;
     const pageHeight = window.innerHeight;
+
+    setPageWidth(pageWidth);
     setPageHeight(pageHeight);
   }
 
@@ -117,6 +122,7 @@ export default function Home() {
             >
               <Section
                 moveToLastSection={moveToLastSection}
+                isMobile={pageWidth <= 767 ? true : false}
               />
             </div>
           ))
