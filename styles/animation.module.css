@@ -16,7 +16,7 @@
 
 .ringing {
   animation: ringing 600ms backwards;
-  animation-delay: 400ms;
+  animation-delay: 500ms;
   animation-iteration-count: 1;
   --angle: 7deg;
 }
