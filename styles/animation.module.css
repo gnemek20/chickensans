@@ -15,24 +15,25 @@
 }
 
 .ringing {
-  animation: ringing 500ms alternate backwards;
-  animation-delay: 300ms;
+  animation: ringing 600ms backwards;
+  animation-delay: 400ms;
   animation-iteration-count: 1;
+  --angle: 7deg;
 }
 
 @keyframes ringing {
   0% {
     opacity: 0%;
-    transform: rotate(10deg);
+    transform: rotate(var(--angle));
   }
   25% {
-    transform: rotate(-10deg);
+    transform: rotate(calc(var(--angle) * -1));
   }
   50% {
-    transform: rotate(10deg);
+    transform: rotate(var(--angle));
   }
   75% {
-    transform: rotate(-10deg);
+    transform: rotate(calc(var(--angle) * -1));
   }
   100% {
     opacity: 100%;
