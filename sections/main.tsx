@@ -1,9 +1,11 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { Background, Content, ContentChild, EmphasizeScroll, Header } from "../components";
 import style from "@/styles/sections/main.module.css";
+import animation from "@/styles/animation.module.css";
 import Image from "next/image";
 
 interface componentProps {
+  active?: boolean,
   moveToLastSection: Function
 }
 
@@ -49,6 +51,7 @@ const main = (props: componentProps) => {
         </ContentChild>
         <ContentChild>
           <Image
+            className={`${props.active && animation.slide}`}
             src={logoImage.src}
             alt={logoImage.alt}
           ></Image>

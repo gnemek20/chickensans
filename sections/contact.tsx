@@ -3,9 +3,11 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import style from "@/styles/sections/contact.module.css";
 import { useRef, useState } from "react";
+import animation from "@/styles/animation.module.css";
 
 interface componentProps {
-  isMobile: boolean
+  isMobile: boolean,
+  active?: boolean
 }
 
 const contact = (props: componentProps) => {
@@ -94,7 +96,7 @@ const contact = (props: componentProps) => {
         </ContentChild>
         <ContentChild>
           <Image
-            className={style.icon}
+            className={`${style.icon} ${props.active && animation.ringing}`}
             src={telephoneIcon.src}
             alt={telephoneIcon.alt}
           ></Image>

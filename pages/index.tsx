@@ -9,7 +9,8 @@ export default function Home() {
   interface componentProps {
     moveToLastSection: Function,
     changeIsMovingLockedStatus: Function,
-    isMobile: boolean
+    isMobile: boolean,
+    active: boolean
   }
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -125,6 +126,7 @@ export default function Home() {
                 moveToLastSection={moveToLastSection}
                 changeIsMovingLockedStatus={setIsMovingLocked}
                 isMobile={pageWidth <= 767 ? true : false}
+                active={currentSectionNumber === index ? true : false}
               />
             </div>
           ))

@@ -1,0 +1,41 @@
+.slide {
+  animation: slide 500ms backwards;
+  animation-delay: 300ms;
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0%;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 100%;
+    transform: translate(0%);
+  }
+}
+
+.ringing {
+  animation: ringing 500ms alternate backwards;
+  animation-delay: 300ms;
+  animation-iteration-count: 1;
+}
+
+@keyframes ringing {
+  0% {
+    opacity: 0%;
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    opacity: 100%;
+    transform: rotate(0);
+  }
+}
