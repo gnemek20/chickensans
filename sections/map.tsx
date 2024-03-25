@@ -37,7 +37,6 @@ const map = (props: componentProps) => {
   }, [isMapOpened]);
 
   useEffect(() => {
-    // if (window.innerWidth >= 768) setIsMapOpened(true);
     setIsMapOpened(true);
 
     const dy_location: { latitude: number, longtitude: number } = {
@@ -64,8 +63,8 @@ const map = (props: componentProps) => {
       ></Background>
       <Content>
         <ContentChild>
-          <h1>이곳에서</h1>
-          <h1>만들어요</h1>
+          <h1>회사는</h1>
+          <h1>여기에 있어요</h1>
           <div
             className={style.address}
           >
