@@ -12,9 +12,9 @@
 
 @media screen and (max-width: 767px) {
   .arrowDown {
-    transform: translateY(-50%);
-    left: 25px;
-    animation-name: upAndDownMobile;
+    /* transform: translateY(-50%); */
+    /* left: 25px; */
+    animation-name: upAndDownPC;
   }
 }
 

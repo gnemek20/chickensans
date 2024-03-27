@@ -6,3 +6,6 @@ export { default as Notifier } from './notifier';
 
 export { default as Header } from './header';
 export { default as Footer } from './footer';
+
+export { default as Cursor } from './cursor';
+export { default as Typing } from './typing';

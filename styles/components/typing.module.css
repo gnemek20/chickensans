@@ -1,0 +1,23 @@
+.text {
+  display: flex;
+  align-items: center;
+  font-size: var(--pc-typing-height);
+  color: white;
+}
+
+.animation {
+  animation: closeOut 2750ms forwards;
+  animation-delay: 250ms;
+}
+
+@media screen and (max-width: 767px) {
+  .text {
+    font-size: var(--mobile-typing-height);
+  }
+}
+
+@keyframes closeOut {
+  100% {
+    transform: scale(0.5);
+  }
+}

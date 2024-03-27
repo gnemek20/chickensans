@@ -1,6 +1,6 @@
 import style from "@/styles/Home.module.css";
 import { Header } from "@/components";
-import { Contact, Main, Map, Zipper } from "@/sections";
+import { Contact, Landing, Main, Map, Zipper } from "@/sections";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
@@ -16,10 +16,11 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const sectionList: Array<(props: componentProps) => JSX.Element> = [
-    Main,
-    Zipper,
-    Map,
-    Contact
+    // Main,
+    // Zipper,
+    // Map,
+    // Contact
+    Landing
   ]
 
   const [pageWidth, setPageWidth] = useState<number>(0);
@@ -100,9 +101,7 @@ export default function Home() {
 
   return (
     <>
-      <div
-        className={style.sidebar}
-      >
+      <div className={style.sidebar}>
         {/* 스크롤바 컴포넌트 제작 */}
       </div>
       <div
