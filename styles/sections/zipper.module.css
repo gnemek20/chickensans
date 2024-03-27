@@ -25,7 +25,7 @@
   animation-fill-mode: forwards;
 }
 .mask .productName {
-  margin-left: 10px;
+  padding-left: 10px;
   color: white;
   overflow: hidden;
 }
