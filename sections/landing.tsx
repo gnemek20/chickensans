@@ -61,7 +61,7 @@ const landing = (props: componentProps) => {
   const moveToNextSection = () => {
     if (!props.active) return;
 
-    setTimeout(() => props.onFinished('down'), 750);
+    setTimeout(() => props.onFinished('down'), 1000);
   }
 
   useEffect(() => {
