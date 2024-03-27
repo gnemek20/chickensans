@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 interface componentProps {
-  disabled: boolean,
+  active: boolean,
   onFinished: Function
 }
 
@@ -59,7 +59,7 @@ const landing = (props: componentProps) => {
   }
 
   const moveToNextSection = () => {
-    if (props.disabled) return;
+    if (!props.active) return;
 
     setTimeout(() => props.onFinished('down'), 750);
   }

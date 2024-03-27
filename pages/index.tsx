@@ -11,7 +11,7 @@ export default function Home() {
     // changeIsMovingLockedStatus: Function,
     // isMobile: boolean,
     // active: boolean
-    disabled: boolean,
+    active: boolean,
     onFinished: Function
   }
 
@@ -129,7 +129,7 @@ export default function Home() {
                 // changeIsMovingLockedStatus={setIsMovingLocked}
                 // isMobile={pageWidth <= 767 ? true : false}
                 // active={currentSectionNumber === index ? true : false}
-                disabled={currentSectionNumber !== index && true}
+                active={currentSectionNumber === index}
                 onFinished={changeSection}
               />
             </div>
