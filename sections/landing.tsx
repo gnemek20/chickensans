@@ -4,7 +4,12 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-const landing = () => {
+interface componentProps {
+  disabled: boolean,
+  onFinished: Function
+}
+
+const landing = (props: componentProps) => {
   const panel1Ref = useRef<HTMLDivElement>(null);
   const panel1Stroke1Ref = useRef<HTMLDivElement>(null);
   const panel1Stroke2Ref = useRef<HTMLDivElement>(null);
@@ -51,6 +56,12 @@ const landing = () => {
     else {
       logoImageRef.current?.classList.toggle(style.logoImagePhaseOut);
     }
+  }
+
+  const moveToNextSection = () => {
+    if (props.disabled) return;
+
+    setTimeout(() => props.onFinished('down'), 750);
   }
 
   useEffect(() => {
@@ -113,7 +124,7 @@ const landing = () => {
         <div className={style.text}>
           <h1 className={style.introduce}>의류 부자재의 새로운 혁신</h1>
           <div className={style.line} />
-          <h1 className={style.company}>대양ING</h1>
+          <h1 className={style.company} onAnimationEnd={moveToNextSection}>대양ING</h1>
         </div>
       </div>
       <EmphasizeScroll></EmphasizeScroll>

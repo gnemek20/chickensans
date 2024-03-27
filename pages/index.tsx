@@ -7,10 +7,12 @@ export default function Home() {
   type direction = 'up' | 'down';
 
   interface componentProps {
-    moveToLastSection: Function,
-    changeIsMovingLockedStatus: Function,
-    isMobile: boolean,
-    active: boolean
+    // moveToLastSection: Function,
+    // changeIsMovingLockedStatus: Function,
+    // isMobile: boolean,
+    // active: boolean
+    disabled: boolean,
+    onFinished: Function
   }
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,7 +22,8 @@ export default function Home() {
     // Zipper,
     // Map,
     // Contact
-    Landing
+    Landing,
+    Zipper
   ]
 
   const [pageWidth, setPageWidth] = useState<number>(0);
@@ -122,10 +125,12 @@ export default function Home() {
               }}
             >
               <Section
-                moveToLastSection={moveToLastSection}
-                changeIsMovingLockedStatus={setIsMovingLocked}
-                isMobile={pageWidth <= 767 ? true : false}
-                active={currentSectionNumber === index ? true : false}
+                // moveToLastSection={moveToLastSection}
+                // changeIsMovingLockedStatus={setIsMovingLocked}
+                // isMobile={pageWidth <= 767 ? true : false}
+                // active={currentSectionNumber === index ? true : false}
+                disabled={currentSectionNumber !== index && true}
+                onFinished={changeSection}
               />
             </div>
           ))
