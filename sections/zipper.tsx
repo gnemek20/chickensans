@@ -10,7 +10,7 @@ const zipper = (props: componentProps) => {
   const maskAnimationRef = useRef<HTMLDivElement>(null);
 
   const deleteMask = () => {
-    setTimeout(maskFadeOut, 500);
+    setTimeout(maskFadeOut, 650);
   }
   const maskFadeOut = () => {
     maskRef.current?.classList.toggle(style.maskFadeOut);
