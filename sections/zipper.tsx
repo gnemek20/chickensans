@@ -6,7 +6,15 @@ interface componentProps {
 }
 
 const zipper = (props: componentProps) => {
+  const maskRef = useRef<HTMLDivElement>(null);
   const maskAnimationRef = useRef<HTMLDivElement>(null);
+
+  const deleteMask = () => {
+    setTimeout(maskFadeOut, 500);
+  }
+  const maskFadeOut = () => {
+    maskRef.current?.classList.toggle(style.maskFadeOut);
+  }
 
   useEffect(() => {
     if (props.active && !maskAnimationRef.current?.classList.contains(style.active)) {
@@ -16,11 +24,11 @@ const zipper = (props: componentProps) => {
 
   return(
     <>
-      <div className={style.mask}>
+      <div className={style.mask} ref={maskRef}>
         <div className={style.maskAnimation} ref={maskAnimationRef}>
           <div className={`${style.line}`}></div>
           <div className={`${style.productName}`}>
-            <h1>Zipper</h1>
+            <h1 onAnimationEnd={deleteMask}>Zipper</h1>
           </div>
         </div>
       </div>

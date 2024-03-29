@@ -9,6 +9,9 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
 }
+.maskFadeOut {
+  animation: maskFadeOut 150ms forwards;
+}
 .maskAnimation {
   width: 100%;
   height: 100%;
@@ -37,6 +40,12 @@
   animation-delay: 250ms;
   animation-fill-mode: forwards;
 }
+@keyframes maskFadeOut {
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 @keyframes pcLineExtend {
   100% {
     opacity: 100%;
@@ -52,7 +61,6 @@
 
 @media screen and (max-width: 767px) {
   .mask .line {
-    height: var(--mobile-normal-height);
     animation-name: mobileLineExtend;
   }
   .productName h1 {
@@ -60,6 +68,7 @@
   }
   @keyframes mobileLineExtend {
     100% {
+      opacity: 100%;
       height: var(--mobile-normal-height);
     }
   }
