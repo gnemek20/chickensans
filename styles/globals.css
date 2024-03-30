@@ -40,6 +40,9 @@ body {
   
   --pc-typing-height: 48px;
   --mobile-typing-height: 36px;
+  
+  --pc-light-height: 18px;
+  --mobile-light-height: 14px;
 
   --pc-normal-height: 32px;
   --mobile-normal-height: 24px;

@@ -10,7 +10,7 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 .maskFadeOut {
-  animation: maskFadeOut 150ms forwards;
+  animation: maskFadeOut 350ms forwards;
 }
 .maskAnimation {
   width: 100%;
@@ -59,6 +59,26 @@
   }
 }
 
+.blur {
+  filter: blur(4px);
+}
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+.emphasizeProduct p {
+  margin-top: 20px;
+  font-size: var(--pc-light-height);
+}
+
 @media screen and (max-width: 767px) {
   .mask .line {
     animation-name: mobileLineExtend;
@@ -71,5 +91,13 @@
       opacity: 100%;
       height: var(--mobile-normal-height);
     }
+  }
+
+  .emphasizeProduct h1 {
+    font-size: var(--mobile-normal-height);
+  }
+  .emphasizeProduct p {
+    margin-top: 10px;
+    font-size: var(--mobile-light-height);
   }
 }
