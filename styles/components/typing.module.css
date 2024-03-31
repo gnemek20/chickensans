@@ -6,7 +6,7 @@
 }
 
 .animation {
-  animation: closeOut 2500ms forwards;
+  animation: closeOut 2250ms forwards;
   animation-delay: 250ms;
 }
 

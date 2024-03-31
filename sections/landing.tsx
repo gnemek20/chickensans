@@ -66,7 +66,7 @@ const landing = (props: componentProps) => {
 
   useEffect(() => {
     if (currentPanelIndex === 4) {
-      setTimeout(next, 750);
+      setTimeout(next, 500);
     }
     else if (currentPanelIndex === 5) {
       logoImageRef.current?.classList.toggle(style.logoImageCloseOut);
