@@ -1,4 +1,4 @@
-import { Background, Content, ContentChild, EmphasizeScroll, Header } from "@/components";
+import { Background, BackgroundBackup, Content, ContentChild, EmphasizeScroll, Header } from "@/components";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import style from "@/styles/sections/zipperBackup.module.css";
@@ -22,10 +22,10 @@ const zipper = () => {
   return (
     <>
       <Header></Header>
-      <Background
+      <BackgroundBackup
         src={backgroundImage.src}
         alt={backgroundImage.alt}
-      ></Background>
+      ></BackgroundBackup>
       <Content>
         <ContentChild>
           <h1>상상하는 그대로</h1>

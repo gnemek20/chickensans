@@ -1,4 +1,4 @@
-import { Background, Content, ContentChild, Footer, Header, Notifier } from "@/components";
+import { Background, BackgroundBackup, Content, ContentChild, Footer, Header, Notifier } from "@/components";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import style from "@/styles/sections/contact.module.css";
@@ -51,10 +51,10 @@ const contact = (props: componentProps) => {
       >
         복사 완료
       </Notifier>
-      <Background
+      <BackgroundBackup
         src={backgroundImage.src}
         alt={backgroundImage.alt}
-      ></Background>
+      ></BackgroundBackup>
       <Content>
         <ContentChild>
           <h1>언제든</h1>

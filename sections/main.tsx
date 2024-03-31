@@ -1,5 +1,5 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { Background, Content, ContentChild, EmphasizeScroll, Header } from "../components";
+import { BackgroundBackup, Content, ContentChild, EmphasizeScroll, Header } from "../components";
 import style from "@/styles/sections/main.module.css";
 import animation from "@/styles/animation.module.css";
 import Image from "next/image";
@@ -28,11 +28,11 @@ const main = (props: componentProps) => {
   return (
     <>
       <Header></Header>
-      <Background
+      <BackgroundBackup
         src={backgroundImage.src}
         alt={backgroundImage.alt}
       >
-      </Background>
+      </BackgroundBackup>
       <Content>
         <ContentChild>
           <h1>지퍼와 단추</h1>
