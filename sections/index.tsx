@@ -7,3 +7,4 @@ export { default as Contact } from './contact';
 
 export { default as Landing } from './landing';
 export { default as Zipper } from './zipper';
+export { default as Button } from './button';

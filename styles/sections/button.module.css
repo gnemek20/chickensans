@@ -1,0 +1,62 @@
+.productName {
+  opacity: 0;
+  margin-left: 5px;
+  color: black;
+}
+.productNameFadeIn {
+  animation: productNameFadeIn 450ms forwards;
+}
+@keyframes productNameFadeIn {
+  100% {
+    opacity: 100%;
+  }
+}
+
+.reverseIcon {
+  filter: invert(1);
+}
+.buttonIcon {
+  width: 70px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  transition: all 250ms;
+}
+.buttonImage {
+  opacity: 0;
+  position: absolute;
+  filter: invert(1);
+  width: 36px;
+  height: 36px;
+  animation-duration: 650ms;
+  animation-fill-mode: forwards;
+}
+.leftButton {
+  animation-name: leftButtonToLeft;
+}
+.rightButton {
+  animation-name: rightButtonToRight;
+}
+@keyframes leftButtonToLeft {
+  100% {
+    opacity: 100%;
+    transform: translateX(-40%);
+  }
+}
+@keyframes rightButtonToRight {
+  100% {
+    opacity: 100%;
+    transform: translate(40%);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .buttonIcon {
+    width: 50px;
+    height: 28px;
+  }
+  .buttonImage {
+    width: 28px;
+    height: 28px;
+  }
+}

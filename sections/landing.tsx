@@ -49,12 +49,12 @@ const landing = (props: componentProps) => {
     setTimeout(() => setCurrentPanelIndex(currentPanelIndex + 1), 250);
   }
 
-  const logoImagePhaseOut = () => {
-    if (logoImageRef.current?.classList.contains(style.logoImagePhaseOut)) {
+  const logoImagefadeOut = () => {
+    if (logoImageRef.current?.classList.contains(style.logoImagefadeOut)) {
       next();
     }
     else {
-      logoImageRef.current?.classList.toggle(style.logoImagePhaseOut);
+      logoImageRef.current?.classList.toggle(style.logoImagefadeOut);
     }
   }
 
@@ -116,7 +116,7 @@ const landing = (props: componentProps) => {
           ref={logoImageRef}
           src={logoImage.src}
           alt={logoImage.alt}
-          onAnimationEnd={logoImagePhaseOut}
+          onAnimationEnd={logoImagefadeOut}
           priority
         ></Image>
       </div>

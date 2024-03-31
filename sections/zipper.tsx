@@ -1,48 +1,46 @@
-import { EmphasizeScroll } from "@/components";
+import { EmphasizeScroll, EmphasizeProduct, Blur, Mask, Background } from "@/components";
 import style from "@/styles/sections/zipper.module.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface componentProps {
   active: boolean
 }
 
 const zipper = (props: componentProps) => {
-  const maskRef = useRef<HTMLDivElement>(null);
-  const maskAnimationRef = useRef<HTMLDivElement>(null);
-  const blurRef = useRef<HTMLDivElement>(null);
+  const [maskActive, setMaskActive] = useState<boolean>(false);
+  const [startMaskAnimation, setStartMaskAnimation] = useState<boolean>(false);
+  const [startBlurAnimation, setStartBlurAnimation] = useState<boolean>(false);
 
-  const deleteMask = () => {
-    setTimeout(maskFadeOut, 650);
+  const eraseMask = () => {
+    setTimeout(maskAnimation, 600);
   }
-  const maskFadeOut = () => {
-    maskRef.current?.classList.toggle(style.maskFadeOut);
-    blurRef.current?.classList.toggle(style.blur);
+  const maskAnimation = () => {
+    setStartMaskAnimation(true);
+    setStartBlurAnimation(true);
   }
 
   useEffect(() => {
-    if (props.active && !maskAnimationRef.current?.classList.contains(style.active)) {
-      setTimeout(() => maskAnimationRef.current?.classList.toggle(style.active), 500);
+    if (props.active) {
+      setMaskActive(true);
     }
   }, [props.active]);
 
   return(
     <>
-      <div className={style.mask} ref={maskRef}>
-        <div className={style.maskAnimation} ref={maskAnimationRef}>
-          <div className={`${style.line}`}></div>
-          <div className={`${style.productName}`}>
-            <h1 onAnimationEnd={deleteMask}>Zipper</h1>
-          </div>
+      <Mask maskActive={maskActive} startMaskAnimation={startMaskAnimation}>
+        <div className={`${style.line}`}></div>
+        <div className={`${style.productName}`}>
+          <h1 onAnimationEnd={eraseMask}>Zipper</h1>
         </div>
-      </div>
-      <div className={style.background}>
-        <div className={`${style.blurContainer} ${style.blur}`} ref={blurRef}>
-          <div className={style.emphasizeProduct}>
+      </Mask>
+      <Background>
+        <Blur startBlurAnimation={startBlurAnimation}>
+          <EmphasizeProduct>
             <h1>Long lasting Best soft Zipper</h1>
             <p>오래도록 부드러운 최고의 지퍼를 제공합니다.</p>
-          </div>
-        </div>
-      </div>
+          </EmphasizeProduct>
+        </Blur>
+      </Background>
       <EmphasizeScroll></EmphasizeScroll>
     </>
   )

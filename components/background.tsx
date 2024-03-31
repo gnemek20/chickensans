@@ -1,24 +1,16 @@
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import Image from "next/image";
 import style from "@/styles/components/background.module.css";
+import { ReactNode } from "react";
 
 interface componentProps {
-  src: StaticImport,
-  alt: string
+  children?: ReactNode
+  white?: boolean
 }
 
 const background = (props: componentProps) => {
   return (
-    <>
-      <Image
-        className={style.image}
-        src={props.src}
-        alt={props.alt}
-      ></Image>
-      <div
-        className={style.dimmed}
-      ></div>
-    </>
+    <div className={`${style.background} ${props.white && style.white}`}>
+      { props.children }
+    </div>
   )
 }
 

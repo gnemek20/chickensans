@@ -176,10 +176,10 @@
     transform: scale(0.75);
   }
 }
-.logoImagePhaseOut {
-  animation: logoImagePhaseOut 750ms;
+.logoImagefadeOut {
+  animation: logoImagefadeOut 750ms;
 }
-@keyframes logoImagePhaseOut {
+@keyframes logoImagefadeOut {
   0% {
     opacity: 100%;
     transform: scale(0.75);

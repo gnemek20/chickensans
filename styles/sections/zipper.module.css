@@ -1,25 +1,4 @@
-.active {
-  display: flex !important;
-}
-
-.mask {
-  z-index: 20;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-}
-.maskFadeOut {
-  animation: maskFadeOut 350ms forwards;
-}
-.maskAnimation {
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-.mask .line {
+.line {
   opacity: 0;
   height: 0;
   border-left: 4px solid white;
@@ -27,7 +6,7 @@
   animation-duration: 250ms;
   animation-fill-mode: forwards;
 }
-.mask .productName {
+.productName {
   padding-left: 10px;
   color: white;
   overflow: hidden;
@@ -39,12 +18,6 @@
   animation-duration: 500ms;
   animation-delay: 250ms;
   animation-fill-mode: forwards;
-}
-@keyframes maskFadeOut {
-  100% {
-    opacity: 0;
-    display: none;
-  }
 }
 @keyframes pcLineExtend {
   100% {
@@ -59,48 +32,14 @@
   }
 }
 
-.blurContainer {
-  transition: all 350ms;
-}
-.blur {
-  filter: blur(4px);
-}
-.background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-}
-.emphasizeProduct p {
-  margin-top: 20px;
-  font-size: var(--pc-light-height);
-}
-
 @media screen and (max-width: 767px) {
-  .mask .line {
+  .line {
     animation-name: mobileLineExtend;
-  }
-  .productName h1 {
-    font-size: var(--mobile-normal-height);
   }
   @keyframes mobileLineExtend {
     100% {
       opacity: 100%;
       height: var(--mobile-normal-height);
     }
-  }
-
-  .emphasizeProduct h1 {
-    font-size: var(--mobile-normal-height);
-  }
-  .emphasizeProduct p {
-    margin-top: 10px;
-    font-size: var(--mobile-light-height);
   }
 }

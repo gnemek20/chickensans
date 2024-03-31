@@ -1,0 +1,6 @@
+.blurContainer {
+  transition: all 350ms;
+}
+.blur {
+  filter: blur(4px);
+}

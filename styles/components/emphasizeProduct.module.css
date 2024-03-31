@@ -1,0 +1,13 @@
+.emphasizeProduct p {
+  margin-top: 20px;
+  font-size: var(--pc-light-height);
+}
+
+@media screen and (max-width: 767px) {
+  .emphasizeProduct h1 {
+    font-size: var(--mobile-normal-height);
+  }
+  .emphasizeProduct p {
+    font-size: var(--mobile-light-height);
+  }
+}

@@ -1,6 +1,6 @@
 import style from "@/styles/Home.module.css";
 import { Header } from "@/components";
-import { Contact, Landing, Main, Map, Zipper } from "@/sections";
+import { Button, Contact, Landing, Main, Map, Zipper } from "@/sections";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
@@ -23,7 +23,8 @@ export default function Home() {
     // Map,
     // Contact
     Landing,
-    Zipper
+    Zipper,
+    Button
   ]
 
   const [pageWidth, setPageWidth] = useState<number>(0);
