@@ -1,43 +1,106 @@
-.map {
-  margin-top: auto;
-  max-height: 400px;
-  height: 100%;
-  border: 10px solid;
-  border-radius: 10px;
-  background: none !important;
-  transition: all 500ms;
+.mapIcon {
+  position: relative;
 }
-.address {
-  margin-top: 20px;
+.board {
+  transform: translateY(10%) skew(20deg) perspective(180px) rotateX(70deg) rotate(25deg);
+  width: 90px;
+  height: 90px;
+  filter: invert(1);
+  animation: slideInBoard 500ms forwards;
+  transition: all 750ms;
 }
-.address .url {
-  cursor: pointer;
-  text-decoration: underline;
+.placeholder {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  filter: invert(1);
+  animation: slideInPlaceholder 500ms forwards;
+  transition: all 750ms;
 }
-.address button {
-  cursor: pointer;
-  margin-top: 10px;
-  padding: 10px 30px;
-  background-color: transparent;
-  color: white;
-  font-size: calc(12px + 0.7cqi);
-  font-weight: bold;
-  border: 2px solid white;
-  border-radius: 10px;
-  transition: all 250ms;
+.productName {
+  opacity: 0;
+  margin-left: 15px;
+  transform: translateY(10%);
+}
+@keyframes slideInBoard {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0) skew(20deg) perspective(180px) rotateX(70deg) rotate(25deg);
+  }
+}
+@keyframes slideInPlaceholder {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(20%);
+  }
+}
+
+.slideInProductName {
+  animation: slideInProductName 500ms forwards;
+  animation-delay: 550ms;
+}
+@keyframes slideInProductName {
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+.resizeBoard {
+  width: 60px !important;
+  height: 60px !important;
+}
+.resizePlaceholder {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.hoverBoard {
+  animation: hoverBoard 550ms alternate infinite;
+}
+@keyframes hoverBoard {
+  0% {
+    transform: translateY(0) skew(20deg) perspective(180px) rotateX(70deg) rotate(25deg);
+  }
+  100% {
+    transform: translateY(5%) skew(20deg) perspective(180px) rotateX(70deg) rotate(25deg);
+  }
+}
+.hoverPlaceholder {
+  animation: hoverPlaceholder 550ms alternate infinite;
+}
+@keyframes hoverPlaceholder {
+  0% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(40%);
+  }
 }
 
 @media screen and (max-width: 767px) {
-  .address {
-    margin-top: 10px;
+  .board {
+    width: 60px;
+    height: 60px;
   }
-  .address button {
-    margin-top: 5px;
+  .resizeBoard {
+    width: 48px !important;
+    height: 48px !important;
   }
-}
-
-@media (hover:hover) {
-  .address button:hover {
-    filter: invert(0.6);
+  .placeholder {
+    width: 24px;
+    height: 24px;
+  }
+  .resizePlaceholder {
+    width: 18px !important;
+    height: 18px !important;
   }
 }

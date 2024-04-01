@@ -1,4 +1,4 @@
-import { EmphasizeScroll, EmphasizeProduct, Blur, Mask, Background } from "@/components";
+import { EmphasizeScroll, EmphasizeProduct, Blur, Mask, Background, ProductName } from "@/components";
 import style from "@/styles/sections/zipper.module.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -28,10 +28,10 @@ const zipper = (props: componentProps) => {
   return(
     <>
       <Mask maskActive={maskActive} startMaskAnimation={startMaskAnimation}>
-        <div className={`${style.line}`}></div>
-        <div className={`${style.productName}`}>
+        <div className={style.line}></div>
+        <ProductName className={style.productName}>
           <h1 onAnimationEnd={eraseMask}>Zipper</h1>
-        </div>
+        </ProductName>
       </Mask>
       <Background>
         <Blur startBlurAnimation={startBlurAnimation}>
