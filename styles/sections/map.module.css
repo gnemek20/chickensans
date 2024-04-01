@@ -64,7 +64,7 @@
 }
 
 .hoverBoard {
-  animation: hoverBoard 550ms alternate infinite;
+  animation: hoverBoard 650ms alternate infinite;
 }
 @keyframes hoverBoard {
   0% {
@@ -75,7 +75,7 @@
   }
 }
 .hoverPlaceholder {
-  animation: hoverPlaceholder 550ms alternate infinite;
+  animation: hoverPlaceholder 650ms alternate infinite;
 }
 @keyframes hoverPlaceholder {
   0% {

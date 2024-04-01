@@ -31,7 +31,7 @@ const map = (props: componentProps) => {
   const [startMaskAnimation, setStartMaskAnimation] = useState<boolean>(false);
 
   const eraseMask = () => {
-    setTimeout(maskAnimation, 600);
+    setTimeout(maskAnimation, 700);
   }
   const maskAnimation = () => {
     setStartMaskAnimation(true);
