@@ -86,6 +86,7 @@
 
 .introduceNameSlideIn {
   animation: introduceNameSlideIn 2000ms forwards;
+  animation-delay: 450ms;
 }
 @keyframes introduceNameSlideIn {
   50% {
@@ -98,7 +99,7 @@
 }
 .introduceDescriptionSlideIn {
   animation: introduceDescriptionSlideIn 1500ms forwards;
-  animation-delay: 500ms;
+  animation-delay: 700ms;
 }
 @keyframes introduceDescriptionSlideIn {
   50% {
@@ -110,7 +111,7 @@
   }
 }
 .introduceImageSlideIn {
-  animation: introduceImageSlideIn 2500ms forwards;
+  animation: introduceImageSlideIn 2250ms forwards;
 }
 @keyframes introduceImageSlideIn {
   50% {
