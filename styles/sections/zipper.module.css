@@ -55,14 +55,14 @@
 .introduceName {
   opacity: 0;
   position: absolute;
-  transform: translate(-50%, -50%) translateY(5%);
+  transform: translate(-50%, -50%) translateY(10%);
   top: 45%;
   left: 22.5%;
 }
 .introduceDescription {
   opacity: 0;
   position: absolute;
-  transform: translateX(-50%) translateY(5%);
+  transform: translateX(-50%) translateY(10%);
   top: 52.5%;
   left: 22.5%;
   font-size: var(--pc-light-height);
@@ -79,28 +79,37 @@
 }
 
 .introduceNameSlideIn {
-  animation: introduceNameSlideIn 750ms forwards;
+  animation: introduceNameSlideIn 1500ms forwards;
 }
 @keyframes introduceNameSlideIn {
+  50% {
+    opacity: 100%;
+  }
   100% {
     opacity: 100%;
     transform: translate(-50%, -50%);
   }
 }
 .introduceDescriptionSlideIn {
-  animation: introduceDescriptionSlideIn 500ms forwards;
+  animation: introduceDescriptionSlideIn 1500ms forwards;
   animation-delay: 250ms;
 }
 @keyframes introduceDescriptionSlideIn {
+  50% {
+    opacity: 100%;
+  }
   100% {
     opacity: 100%;
     transform: translateX(-50%);
   }
 }
 .introduceImageSlideIn {
-  animation: introduceImageSlideIn 750ms forwards;
+  animation: introduceImageSlideIn 1500ms forwards;
 }
 @keyframes introduceImageSlideIn {
+  50% {
+    opacity: 100%;
+  }
   100% {
     opacity: 100%;
     transform: translateY(-35%);
