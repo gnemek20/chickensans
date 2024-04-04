@@ -12,7 +12,8 @@ export default function Home() {
     // isMobile: boolean,
     // active: boolean
     active: boolean,
-    onFinished: Function
+    onFinished: Function,
+    lockMoveSection: Function
   }
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -85,6 +86,10 @@ export default function Home() {
     if (event.target === containerRef.current) setIsMoving(false);
   }
 
+  const lockMoveSection = (status: boolean) => {
+    setIsMovingLocked(status);
+  }
+
   const resizePageHeight = () => {
     const pageWidth = window.innerWidth;
     const pageHeight = window.innerHeight;
@@ -127,12 +132,9 @@ export default function Home() {
               }}
             >
               <Section
-                // moveToLastSection={moveToLastSection}
-                // changeIsMovingLockedStatus={setIsMovingLocked}
-                // isMobile={pageWidth <= 767 ? true : false}
-                // active={currentSectionNumber === index ? true : false}
                 active={currentSectionNumber === index}
                 onFinished={changeSection}
+                lockMoveSection={lockMoveSection}
               />
             </div>
           ))

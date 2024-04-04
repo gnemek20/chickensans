@@ -1,4 +1,4 @@
-import { EmphasizeScroll, EmphasizeProduct, Blur, Mask, Background, ProductName } from "@/components";
+import { EmphasizeScroll, EmphasizeProduct, Blur, Mask, Background, ProductName, DivideLayer } from "@/components";
 import style from "@/styles/sections/zipper.module.css";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useEffect, useRef, useState } from "react";
@@ -61,7 +61,7 @@ const zipper = (props: componentProps) => {
             <h1>Long lasting Best soft Zipper</h1>
             <p>오래도록 부드러운 최고의 지퍼를 제공합니다.</p>
           </EmphasizeProduct>
-          <div className={style.dimmedLayer}></div>
+          <DivideLayer></DivideLayer>
           <div className={style.introduce}>
             <div className={style.introduceText}>
               <h1 className={style.introduceName} ref={introduceNameRef}>Coil Zipper</h1>

@@ -2,7 +2,7 @@ import style from "@/styles/sections/button.module.css";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Background, Blur, EmphasizeProduct, EmphasizeScroll, Mask, ProductName } from "@/components";
+import { Background, Blur, DivideLayer, EmphasizeProduct, EmphasizeScroll, Mask, ProductName } from "@/components";
 
 interface componentProps {
   active: boolean
@@ -77,6 +77,7 @@ const button = (props: componentProps) => {
             <h1>Gesture to Open the World</h1>
             <p>절대로 해지지 않는 단단한 버튼을 제공합니다.</p>
           </EmphasizeProduct>
+          <DivideLayer top></DivideLayer>
         </Blur>
       </Background>
       <EmphasizeScroll black></EmphasizeScroll>

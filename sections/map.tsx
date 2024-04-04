@@ -1,11 +1,12 @@
-import { Background, Blur, EmphasizeProduct, EmphasizeScroll, Mask, ProductName } from "@/components";
+import { Background, Blur, DivideLayer, EmphasizeProduct, EmphasizeScroll, Mask, ProductName } from "@/components";
 import style from "@/styles/sections/map.module.css";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface componentProps {
-  active: boolean
+  active: boolean,
+  lockMoveSection: Function
 }
 
 const map = (props: componentProps) => {
@@ -27,15 +28,20 @@ const map = (props: componentProps) => {
   const placeholderRef = useRef<HTMLImageElement>(null);
   const productNameRef = useRef<HTMLDivElement>(null);
 
+  const map = useRef<Element | any>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+
   const [maskActive, setMaskActive] = useState<boolean>(false);
   const [startMaskAnimation, setStartMaskAnimation] = useState<boolean>(false);
+
+  const [isCoverShowing, setIsCoverShowing] = useState<boolean>(true);
+  const [isCoverClicked, setIsCoverClicked] = useState<boolean>(false);
 
   const eraseMask = () => {
     setTimeout(maskAnimation, 700);
   }
   const maskAnimation = () => {
     setStartMaskAnimation(true);
-    // setStartBlurAnimation(true);
   }
 
   const resizeMapIcon = () => {
@@ -56,6 +62,22 @@ const map = (props: componentProps) => {
   useEffect(() => {
     if (props.active) setMaskActive(true);
   }, [props.active]);
+
+  useEffect(() => {
+    const dy_location: { latitude: number, longtitude: number } = {
+      latitude: 37.57360,
+      longtitude: 127.00450
+    }
+
+    map.current = new naver.maps.Map('map', {
+      center: new naver.maps.LatLng(dy_location.latitude, dy_location.longtitude),
+      zoom: 15
+    });
+    new naver.maps.Marker({
+      position: new naver.maps.LatLng(dy_location.latitude, dy_location.longtitude),
+      map: map.current
+    });
+  }, []);
 
   return (
     <>
@@ -85,6 +107,24 @@ const map = (props: componentProps) => {
         </ProductName>
       </Mask>
       <Background white>
+        <EmphasizeProduct>
+          <h1>찾아오시는 길</h1>
+          <p>서울특별시 종로구 김상옥로 59, 한아빌딩 3층</p>
+        </EmphasizeProduct>
+        <DivideLayer></DivideLayer>
+        <div className={style.introduce}>
+          <div className={style.mapShadow}></div>
+          <div
+            className={style.map}
+            id="map"
+            ref={mapRef}
+            onTouchStart={() => props.lockMoveSection(true)}
+            onTouchEnd={() => props.lockMoveSection(false)}
+          ></div>
+          <div
+            className={style.mapCover}
+          ></div>
+        </div>
       </Background>
       <EmphasizeScroll black></EmphasizeScroll>
     </>

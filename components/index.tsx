@@ -14,3 +14,4 @@ export { default as Blur } from './blur';
 export { default as Mask } from './mask';
 export { default as Background } from './background';
 export { default as ProductName } from './productName';
+export { default as DivideLayer } from './divideLayer';
