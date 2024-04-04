@@ -5,12 +5,17 @@ interface componentProps {
   children?: ReactNode,
   maskActive: boolean,
   startMaskAnimation: boolean,
-  reverseMask?: boolean
+  reverseMask?: boolean,
+  onAnimationEnd?: Function
 }
 
 const mask = (props: componentProps) => {
   const maskRef = useRef<HTMLDivElement>(null);
   const maskAnimationRef = useRef<HTMLDivElement>(null);
+
+  const onMaskAnimationEnd = () => {
+    if (props.startMaskAnimation) props.onAnimationEnd && props.onAnimationEnd();
+  }
 
   useEffect(() => {
     if (props.reverseMask && !maskRef.current?.classList.contains(style.reverseMask)) {
@@ -31,7 +36,7 @@ const mask = (props: componentProps) => {
   }, [props.maskActive]);
 
   return (
-    <div className={style.mask} ref={maskRef}>
+    <div className={style.mask} ref={maskRef} onAnimationEnd={onMaskAnimationEnd}>
       <div className={style.maskAnimation} ref={maskAnimationRef}>
         { props.children }
       </div>

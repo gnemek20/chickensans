@@ -120,6 +120,9 @@
   .text h1 {
     font-size: var(--mobile-normal-height);
   }
+  .text .line {
+    margin: 5px auto 10px;
+  }
 }
 
 .panel1Stroke1ToDown {

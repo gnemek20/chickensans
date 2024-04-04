@@ -1,3 +1,12 @@
+.emphasizeProduct {
+  z-index: 20;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 15%;
+  left: 50%;
+  width: 100%;
+}
+
 .emphasizeProduct p {
   margin-top: 20px;
   font-size: var(--pc-light-height);
@@ -8,6 +17,7 @@
     font-size: var(--mobile-normal-height);
   }
   .emphasizeProduct p {
+    margin-top: 10px;
     font-size: var(--mobile-light-height);
   }
 }

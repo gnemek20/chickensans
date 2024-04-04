@@ -1,7 +1,7 @@
 .productName {
   opacity: 0;
   margin-left: 5px;
-  color: black;
+  color: var(--text-black);
 }
 .productNameFadeIn {
   animation: productNameFadeIn 450ms forwards;

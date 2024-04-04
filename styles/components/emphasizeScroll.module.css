@@ -10,7 +10,7 @@
   filter: invert(1);
 }
 .black {
-  filter: none !important;
+  filter: invert(0.1);
 }
 
 @keyframes upAndDown {

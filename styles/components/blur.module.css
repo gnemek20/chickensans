@@ -1,5 +1,10 @@
 .blurContainer {
   transition: all 350ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 .blur {
   filter: blur(4px);
