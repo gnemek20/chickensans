@@ -36,7 +36,7 @@ body {
 }
 
 :root {
-  --max-width: 1600px;
+  --max-width: 1500px;
   
   --pc-typing-height: 48px;
   --mobile-typing-height: 36px;
