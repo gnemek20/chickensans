@@ -112,6 +112,7 @@
   height: 100%;
 }
 .map {
+  z-index: 5;
   position: absolute;
   transform: translate(-50%, -50%);
   top: 45%;
@@ -120,6 +121,7 @@
   height: 40%;
 }
 .mapCover {
+  z-index: 10;
   position: absolute;
   transform: translate(-50%, -50%);
   top: 45%;

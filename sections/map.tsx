@@ -121,9 +121,7 @@ const map = (props: componentProps) => {
             onTouchStart={() => props.lockMoveSection(true)}
             onTouchEnd={() => props.lockMoveSection(false)}
           ></div>
-          <div
-            className={style.mapCover}
-          ></div>
+          <div className={style.mapCover}></div>
         </div>
       </Background>
       <EmphasizeScroll black></EmphasizeScroll>
