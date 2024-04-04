@@ -74,13 +74,14 @@ const zipper = (props: componentProps) => {
                 <p>알맞은 텍스트로 채워주세요.</p>
               </div>
             </div>
-            <Image
-              className={style.introduceImage}
-              ref={introduceImageRef}
-              src={sampleImage.src}
-              alt={sampleImage.alt}
-              width={400}
-            ></Image>
+            <div className={style.introduceImage} ref={introduceImageRef}>
+              <Image
+                src={sampleImage.src}
+                alt={sampleImage.alt}
+                width={400}
+              ></Image>
+              <div className={style.imageBorder}></div>
+            </div>
           </div>
         </Blur>
       </Background>
