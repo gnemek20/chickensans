@@ -75,7 +75,7 @@ const button = (props: componentProps) => {
         <Blur startBlurAnimation={startBlurAnimation}>
           <EmphasizeProduct>
             <h1>Gesture to Open the World</h1>
-            <p>절대로 해지지 않는 단단한 버튼을 제공합니다.</p>
+            <p>절대로 해지지 않는 단단한 단추를 제공해 드립니다.</p>
           </EmphasizeProduct>
           <DivideLayer top></DivideLayer>
         </Blur>

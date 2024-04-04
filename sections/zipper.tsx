@@ -59,7 +59,7 @@ const zipper = (props: componentProps) => {
         <Blur startBlurAnimation={startBlurAnimation}>
           <EmphasizeProduct>
             <h1>Long lasting Best soft Zipper</h1>
-            <p>오래도록 부드러운 최고의 지퍼를 제공합니다.</p>
+            <p>오래도록 부드러운 최고의 지퍼로 가공해 드립니다.</p>
           </EmphasizeProduct>
           <DivideLayer></DivideLayer>
           <div className={style.introduce}>
