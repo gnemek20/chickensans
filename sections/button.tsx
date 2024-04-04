@@ -71,7 +71,7 @@ const button = (props: componentProps) => {
             <h1>Button</h1>
           </ProductName>
       </Mask>
-      <Background>
+      <Background white>
         <Blur startBlurAnimation={startBlurAnimation}>
           <EmphasizeProduct>
             <h1>Gesture to Open the World</h1>
@@ -79,7 +79,7 @@ const button = (props: componentProps) => {
           </EmphasizeProduct>
         </Blur>
       </Background>
-      <EmphasizeScroll></EmphasizeScroll>
+      <EmphasizeScroll black></EmphasizeScroll>
     </>
   )
 }

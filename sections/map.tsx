@@ -84,9 +84,9 @@ const map = (props: componentProps) => {
           <h1>Map</h1>
         </ProductName>
       </Mask>
-      <Background>
+      <Background white>
       </Background>
-      <EmphasizeScroll></EmphasizeScroll>
+      <EmphasizeScroll black></EmphasizeScroll>
     </>
   )
 }
