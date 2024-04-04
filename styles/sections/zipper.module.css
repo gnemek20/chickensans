@@ -49,22 +49,22 @@
 }
 .introduceText {
   position: relative;
-  max-width: var(--max-width);
+  max-width: 1200px;
   width: 100%;
 }
 .introduceName {
   opacity: 0;
   position: absolute;
-  transform: translate(-50%, -50%) translateY(10%);
+  transform: translate(0, -50%) translateY(10%);
   top: 45%;
-  left: 22.5%;
+  left: 5%;
 }
 .introduceDescription {
   opacity: 0;
   position: absolute;
-  transform: translateX(-50%) translateY(10%);
+  transform: translateY(10%);
   top: 52.5%;
-  left: 27.5%;
+  left: 5%;
   font-size: var(--pc-light-height);
   text-align: start;
 }
@@ -88,7 +88,7 @@
   }
   100% {
     opacity: 100%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
   }
 }
 .introduceDescriptionSlideIn {
@@ -101,7 +101,7 @@
   }
   100% {
     opacity: 100%;
-    transform: translateX(-50%);
+    transform: translateY(0);
   }
 }
 .introduceImageSlideIn {
@@ -134,7 +134,7 @@
   }
   .introduceDescription {
     top: 65%;
-    left: 50%;
+    left: 0;
     font-size: var(--mobile-light-height);
     text-align: center;
     width: 100%;
