@@ -225,6 +225,7 @@
     top: 35%;
   }
   .mapOption > .switch {
+    cursor: default;
     width: 40px;
     height: 20px;
   }
