@@ -101,13 +101,11 @@ const map = (props: componentProps) => {
       position: new naver.maps.LatLng(dy_location.latitude, dy_location.longtitude),
       map: map.current
     });
-
-    setStartBlurAnimation(true);
   }, []);
 
   return (
     <>
-      {/* <Mask maskActive={maskActive} onClick={eraseMask} startMaskAnimation={startMaskAnimation}>
+      <Mask maskActive={maskActive} onClick={eraseMask} startMaskAnimation={startMaskAnimation}>
         <div className={style.mapIcon}>
           <Image
             className={style.board}
@@ -131,7 +129,7 @@ const map = (props: componentProps) => {
         >
           <h1>Map</h1>
         </ProductName>
-      </Mask> */}
+      </Mask>
       <Background white>
         <Blur startBlurAnimation={startBlurAnimation}>
           <EmphasizeProduct>
@@ -152,7 +150,7 @@ const map = (props: componentProps) => {
               <h1>Locked</h1>
             </div>
             <div className={style.mapOption}>
-              <div className={style.switch} ref={mapSwitchRef} onClick={unlockMapCover} onTouchStart={() => window.alert('what?')} style={{cursor: 'pointer'}}>
+              <div className={style.switch} ref={mapSwitchRef} onClick={unlockMapCover} style={{cursor: 'pointer'}}>
                 <div className={style.slider} ref={switchSliderRef}></div>
               </div>
             </div>
