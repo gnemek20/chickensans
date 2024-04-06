@@ -20,3 +20,16 @@
   border-top: none;
   border-bottom: 5px dashed rgba(0, 0, 0, 0.05);
 }
+
+@media screen and (max-width: 767px) {
+  .divideLine {
+    border: 4px dashed rgba(0, 0, 0, 0.05);
+  }
+  .divideLayer {
+    height: calc(50% - 4px);
+    border-top: 4px dashed rgba(0, 0, 0, 0.05);
+  }
+  .positionTop {
+    border-bottom: 4px dashed rgba(0, 0, 0, 0.05);
+  }
+}
