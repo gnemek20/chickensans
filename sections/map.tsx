@@ -88,19 +88,19 @@ const map = (props: componentProps) => {
   }, [props.active]);
 
   useEffect(() => {
-    const dy_location: { latitude: number, longtitude: number } = {
-      latitude: 37.57360,
-      longtitude: 127.00450
-    }
+    // const dy_location: { latitude: number, longtitude: number } = {
+    //   latitude: 37.57360,
+    //   longtitude: 127.00450
+    // }
 
-    map.current = new naver.maps.Map('map', {
-      center: new naver.maps.LatLng(dy_location.latitude - 0.001, dy_location.longtitude),
-      zoom: 16
-    });
-    new naver.maps.Marker({
-      position: new naver.maps.LatLng(dy_location.latitude, dy_location.longtitude),
-      map: map.current
-    });
+    // map.current = new naver.maps.Map('map', {
+    //   center: new naver.maps.LatLng(dy_location.latitude - 0.001, dy_location.longtitude),
+    //   zoom: 16
+    // });
+    // new naver.maps.Marker({
+    //   position: new naver.maps.LatLng(dy_location.latitude, dy_location.longtitude),
+    //   map: map.current
+    // });
   }, []);
 
   return (
@@ -139,13 +139,13 @@ const map = (props: componentProps) => {
           <DivideLayer></DivideLayer>
           <div className={style.introduce}>
             <div className={style.mapShadow}></div>
-            <div
+            {/* <div
               className={style.map}
               id="map"
               ref={mapRef}
               onTouchStart={() => props.lockMoveSection(true)}
               onTouchEnd={() => props.lockMoveSection(false)}
-            ></div>
+            ></div> */}
             <div className={style.mapCover} ref={mapCoverRef}>
               <h1>Locked</h1>
             </div>
