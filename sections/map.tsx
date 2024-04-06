@@ -65,6 +65,8 @@ const map = (props: componentProps) => {
   }
 
   const unlockMapCover = () => {
+    window.alert('touched');
+
     if (isMapCoverShowing) {
       mapCoverRef.current?.classList.remove(style.fadeInMapCover);
       mapCoverRef.current?.classList.toggle(style.fadeOutMapCover);
