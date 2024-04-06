@@ -63,13 +63,13 @@ const button = (props: componentProps) => {
             onAnimationEnd={startReversingMask}
           ></Image>
         </div>
-          <ProductName
-            className={style.productName}
-            componentRef={productNameRef}
-            onAnimationEnd={eraseMask}
-          >
-            <h1>Button</h1>
-          </ProductName>
+        <ProductName
+          className={style.productName}
+          componentRef={productNameRef}
+          onAnimationEnd={eraseMask}
+        >
+          <h1>Button</h1>
+        </ProductName>
       </Mask>
       <Background white>
         <Blur startBlurAnimation={startBlurAnimation}>

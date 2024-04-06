@@ -26,7 +26,8 @@ export default function Home() {
     Landing,
     Zipper,
     Button,
-    Map
+    Map,
+    Contact
   ]
 
   const [pageWidth, setPageWidth] = useState<number>(0);

@@ -19,8 +19,14 @@ const zipper = (props: componentProps) => {
     alt: 'sampleImage'
   }
 
+  const halfZipperIcon: imageProps = {
+    src: require('@/public/icons/halfZipper.png'),
+    alt: 'halfZipperIcon'
+  }
+
   const introduceNameRef = useRef<HTMLHeadingElement>(null);
   const introduceDescriptionRef = useRef<HTMLDivElement>(null);
+  const dummyBackgroundRef = useRef<HTMLDivElement>(null);
   const introduceImageRef = useRef<HTMLImageElement>(null);
 
   const [maskActive, setMaskActive] = useState<boolean>(false);
@@ -38,6 +44,7 @@ const zipper = (props: componentProps) => {
   const showIntroduce = () => {
     introduceNameRef.current?.classList.toggle(style.introduceNameSlideIn);
     introduceDescriptionRef.current?.classList.toggle(style.introduceDescriptionSlideIn);
+    dummyBackgroundRef.current?.classList.toggle(style.dummyBackgroundSlideIn);
     introduceImageRef.current?.classList.toggle(style.introduceImageSlideIn);
   }
 
@@ -50,7 +57,18 @@ const zipper = (props: componentProps) => {
   return(
     <>
       <Mask maskActive={maskActive} startMaskAnimation={startMaskAnimation} onAnimationEnd={showIntroduce}>
-        <div className={style.line}></div>
+        <div className={style.lineContainer}>
+          <Image
+            className={`${style.line} ${style.leftLine}`}
+            src={halfZipperIcon.src}
+            alt={halfZipperIcon.alt}
+          ></Image>
+          <Image
+            className={`${style.line} ${style.rightLine}`}
+            src={halfZipperIcon.src}
+            alt={halfZipperIcon.alt}
+          ></Image>
+        </div>
         <ProductName className={style.productName}>
           <h1 onAnimationEnd={eraseMask}>Zipper</h1>
         </ProductName>
@@ -74,6 +92,7 @@ const zipper = (props: componentProps) => {
                 <p>알맞은 텍스트로 채워주세요.</p>
               </div>
             </div>
+            <div className={style.dummyBackground} ref={dummyBackgroundRef}></div>
             <div className={style.introduceImage} ref={introduceImageRef}>
               <Image
                 src={sampleImage.src}

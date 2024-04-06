@@ -1,10 +1,21 @@
+.lineContainer {
+  display: flex;
+  overflow: hidden;
+}
 .line {
   opacity: 0;
   height: 0;
-  border-left: 4px solid white;
-  animation-name: pcLineExtend;
-  animation-duration: 250ms;
+  animation-duration: 750ms;
   animation-fill-mode: forwards;
+  height: var(--pc-normal-height);
+}
+.leftLine {
+  animation-name: leftLineExtend;
+  transform: translateY(-100%);
+}
+.rightLine {
+  animation-name: rightLineExtend;
+  transform: rotate(180deg) translateY(-100%);
 }
 .productName {
   padding-left: 10px;
@@ -15,13 +26,19 @@
   transform: translateX(-100%);
   animation-name: productNameSlideIn;
   animation-duration: 500ms;
-  animation-delay: 250ms;
+  animation-delay: 650ms;
   animation-fill-mode: forwards;
 }
-@keyframes pcLineExtend {
+@keyframes leftLineExtend {
   100% {
     opacity: 100%;
-    height: var(--pc-normal-height);
+    transform: none;
+  }
+}
+@keyframes rightLineExtend {
+  100% {
+    opacity: 100%;
+    transform: rotate(180deg);
   }
 }
 @keyframes productNameSlideIn {
@@ -68,7 +85,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 58%;
+  width: 56%;
   height: 50%;
 }
 .imageBorder {
@@ -123,16 +140,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  .line {
-    animation-name: mobileLineExtend;
-  }
-  @keyframes mobileLineExtend {
-    100% {
-      opacity: 100%;
-      height: var(--mobile-normal-height);
-    }
-  }
-
   .introduceName {
     top: 60%;
     font-size: var(--mobile-normal-height);
@@ -142,9 +149,32 @@
     font-size: var(--mobile-light-height);
     width: 90%;
   }
+  .dummyBackground {
+    opacity: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    transform: translateY(-50%) translateX(-10%);
+    top: 37.5%;
+    left: 0;
+    width: 90%;
+    height: 20%;
+  }
   .introduceImage {
     top: 42.5%;
     width: 90%;
     height: 20%;
+  }
+
+  .dummyBackgroundSlideIn {
+    animation: dummyBackgroundSlideIn 2250ms forwards;
+  }
+  @keyframes dummyBackgroundSlideIn {
+    50% {
+      opacity: 100%;
+    }
+    100% {
+      opacity: 100%;
+      transform: translateY(-50%);
+    }
   }
 }
