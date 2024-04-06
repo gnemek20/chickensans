@@ -101,11 +101,13 @@ const map = (props: componentProps) => {
       position: new naver.maps.LatLng(dy_location.latitude, dy_location.longtitude),
       map: map.current
     });
+
+    setStartBlurAnimation(true);
   }, []);
 
   return (
     <>
-      <Mask maskActive={maskActive} onClick={eraseMask} startMaskAnimation={startMaskAnimation}>
+      {/* <Mask maskActive={maskActive} onClick={eraseMask} startMaskAnimation={startMaskAnimation}>
         <div className={style.mapIcon}>
           <Image
             className={style.board}
@@ -129,7 +131,7 @@ const map = (props: componentProps) => {
         >
           <h1>Map</h1>
         </ProductName>
-      </Mask>
+      </Mask> */}
       <Background white>
         <Blur startBlurAnimation={startBlurAnimation}>
           <EmphasizeProduct>
