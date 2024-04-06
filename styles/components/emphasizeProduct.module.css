@@ -2,7 +2,7 @@
   z-index: 20;
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 15%;
+  top: 10%;
   left: 50%;
   width: 100%;
 }
@@ -13,6 +13,9 @@
 }
 
 @media screen and (max-width: 767px) {
+  .emphasizeProduct {
+    top: 15%;
+  }
   .emphasizeProduct h1 {
     font-size: var(--mobile-normal-height);
   }

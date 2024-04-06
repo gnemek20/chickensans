@@ -4,6 +4,7 @@
   word-break: keep-all;
   touch-action: none;
   outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {

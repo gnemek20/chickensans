@@ -30,18 +30,20 @@ const map = (props: componentProps) => {
 
   const map = useRef<Element | any>(null);
   const mapRef = useRef<HTMLDivElement>(null);
+  const mapCoverRef = useRef<HTMLDivElement>(null);
+
+  const [isMapCoverShowing, setIsMapCoverShowing] = useState<boolean>(true);
 
   const [maskActive, setMaskActive] = useState<boolean>(false);
   const [startMaskAnimation, setStartMaskAnimation] = useState<boolean>(false);
-
-  const [isCoverShowing, setIsCoverShowing] = useState<boolean>(true);
-  const [isCoverClicked, setIsCoverClicked] = useState<boolean>(false);
+  const [startBlurAnimation, setStartBlurAnimation] = useState<boolean>(false);
 
   const eraseMask = () => {
     setTimeout(maskAnimation, 700);
   }
   const maskAnimation = () => {
     setStartMaskAnimation(true);
+    setStartBlurAnimation(true);
   }
 
   const resizeMapIcon = () => {
@@ -59,6 +61,19 @@ const map = (props: componentProps) => {
     }
   }
 
+  const toggleMapCover = () => {
+    if (isMapCoverShowing) {
+      mapCoverRef.current?.classList.remove(style.fadeInMapCover);
+      mapCoverRef.current?.classList.toggle(style.fadeOutMapCover);
+    }
+    else {
+      mapCoverRef.current?.classList.remove(style.fadeOutMapCover);
+      mapCoverRef.current?.classList.toggle(style.fadeInMapCover);
+    }
+
+    setIsMapCoverShowing(!isMapCoverShowing);
+  }
+
   useEffect(() => {
     if (props.active) setMaskActive(true);
   }, [props.active]);
@@ -70,8 +85,8 @@ const map = (props: componentProps) => {
     }
 
     map.current = new naver.maps.Map('map', {
-      center: new naver.maps.LatLng(dy_location.latitude, dy_location.longtitude),
-      zoom: 15
+      center: new naver.maps.LatLng(dy_location.latitude - 0.001, dy_location.longtitude),
+      zoom: 16
     });
     new naver.maps.Marker({
       position: new naver.maps.LatLng(dy_location.latitude, dy_location.longtitude),
@@ -107,22 +122,35 @@ const map = (props: componentProps) => {
         </ProductName>
       </Mask>
       <Background white>
-        <EmphasizeProduct>
-          <h1>찾아오시는 길</h1>
-          <p>서울특별시 종로구 김상옥로 59, 한아빌딩 3층</p>
-        </EmphasizeProduct>
-        <DivideLayer></DivideLayer>
-        <div className={style.introduce}>
-          <div className={style.mapShadow}></div>
-          <div
-            className={style.map}
-            id="map"
-            ref={mapRef}
-            onTouchStart={() => props.lockMoveSection(true)}
-            onTouchEnd={() => props.lockMoveSection(false)}
-          ></div>
-          <div className={style.mapCover}></div>
-        </div>
+        <Blur startBlurAnimation={startBlurAnimation}>
+          <EmphasizeProduct>
+            <h1>찾아오시는 길</h1>
+            <p>서울특별시 종로구 김상옥로 59, 한아빌딩 3층</p>
+          </EmphasizeProduct>
+          <DivideLayer></DivideLayer>
+          <div className={style.introduce}>
+            <div className={style.mapShadow}></div>
+            <div
+              className={style.map}
+              id="map"
+              ref={mapRef}
+              onTouchStart={() => props.lockMoveSection(true)}
+              onTouchEnd={() => props.lockMoveSection(false)}
+            ></div>
+            <div className={style.mapCover} ref={mapCoverRef}>
+              <h1>Locked</h1>
+            </div>
+            <div className={style.mapCoverButton}>
+              <div className={style.buttonShadow}></div>
+              <button
+                className={style.button}
+                onClick={toggleMapCover}
+              >
+                지도 {isMapCoverShowing ? '열기' : '닫기'}
+              </button>
+            </div>
+          </div>
+        </Blur>
       </Background>
       <EmphasizeScroll black></EmphasizeScroll>
     </>
