@@ -32,6 +32,9 @@ const map = (props: componentProps) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapCoverRef = useRef<HTMLDivElement>(null);
 
+  const mapSwitchRef = useRef<HTMLDivElement>(null);
+  const switchSliderRef = useRef<HTMLDivElement>(null);
+
   const [isMapCoverShowing, setIsMapCoverShowing] = useState<boolean>(true);
 
   const [maskActive, setMaskActive] = useState<boolean>(false);
@@ -61,14 +64,20 @@ const map = (props: componentProps) => {
     }
   }
 
-  const toggleMapCover = () => {
+  const unlockMapCover = () => {
     if (isMapCoverShowing) {
       mapCoverRef.current?.classList.remove(style.fadeInMapCover);
       mapCoverRef.current?.classList.toggle(style.fadeOutMapCover);
+
+      mapSwitchRef.current?.classList.remove(style.switchActive);
+      switchSliderRef.current?.classList.remove(style.sliderActive);
     }
     else {
       mapCoverRef.current?.classList.remove(style.fadeOutMapCover);
       mapCoverRef.current?.classList.toggle(style.fadeInMapCover);
+
+      mapSwitchRef.current?.classList.toggle(style.switchActive);
+      switchSliderRef.current?.classList.toggle(style.sliderActive);
     }
 
     setIsMapCoverShowing(!isMapCoverShowing);
@@ -140,14 +149,10 @@ const map = (props: componentProps) => {
             <div className={style.mapCover} ref={mapCoverRef}>
               <h1>Locked</h1>
             </div>
-            <div className={style.mapCoverButton}>
-              <div className={style.buttonShadow}></div>
-              <button
-                className={style.button}
-                onClick={toggleMapCover}
-              >
-                지도 {isMapCoverShowing ? '열기' : '닫기'}
-              </button>
+            <div className={style.mapOption}>
+              <div className={style.switch} ref={mapSwitchRef} onClick={unlockMapCover}>
+                <div className={style.slider} ref={switchSliderRef}></div>
+              </div>
             </div>
           </div>
         </Blur>

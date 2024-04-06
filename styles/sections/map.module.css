@@ -149,32 +149,37 @@
   width: 90%;
   height: 50%;
 }
-.mapCoverButton {
+.mapOption {
+  z-index: 10;
   position: relative;
   transform: translate(-50%, -50%);
-  top: 30%;
+  top: 27.5%;
   left: 50%;
-  width: 146px;
-  height: 56px;
+  width: calc(90% + 10px);
+  height: 35px;
 }
-.mapCoverButton > .button {
+.mapOption > .switch {
   cursor: pointer;
-  z-index: 10;
-  position: absolute;
-  top: 0.5px;
-  left: 0.5px;
-  background-color: white;
-  border: 1px dashed rgba(0, 0, 0, 0.8);
-  width: 140px;
-  height: 50px;
+  margin-left: auto;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 50px;
+  height: 25px;
+  padding: 5px 5px;
+  transition: all 350ms;
 }
-.mapCoverButton > .buttonShadow {
-  position: absolute;
-  top: 5.5px;
-  left: 5.5px;
-  background-color: rgba(0, 0, 0, 0.35);
-  width: 140px;
-  height: 50px;
+.switchActive {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+.switch > .slider {
+  border-radius: 2.5px;
+  background-color: white;
+  width: 25px;
+  height: 25px;
+  transition: all 350ms;
+}
+.sliderActive {
+  transform: translateX(100%);
 }
 
 .fadeOutMapCover {
@@ -215,17 +220,8 @@
   .mapCover h1 {
     font-size: var(--mobile-normal-height);
   }
-  .mapCoverButton {
+
+  .mapOption {
     top: 32.5%;
-    width: 106px;
-    height: 46px;
-  }
-  .mapCoverButton > .button {
-    width: 100px;
-    height: 40px;
-  }
-  .mapCoverButton > .buttonShadow {
-    width: 100px;
-    height: 40px;
   }
 }
