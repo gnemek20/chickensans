@@ -150,7 +150,7 @@ const map = (props: componentProps) => {
               <h1>Locked</h1>
             </div>
             <div className={style.mapOption}>
-              <div className={style.switch} ref={mapSwitchRef} onClick={unlockMapCover}>
+              <div className={style.switch} ref={mapSwitchRef} onClick={unlockMapCover} style={{cursor: 'pointer'}}>
                 <div className={style.slider} ref={switchSliderRef}></div>
               </div>
             </div>

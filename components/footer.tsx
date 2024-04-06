@@ -39,6 +39,7 @@ const footer = (props: componentProps) => {
       <div
         className={style.pullButton}
         onClick={pullFooter}
+        style={{cursor: 'pointer'}}
       >
         <Image
           className={`${isFooterShowing ? style.directionDown : style.directionUp}`}
