@@ -1,12 +1,22 @@
+.divideLine {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  border: 5px dashed rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
 .divideLayer {
   position: absolute;
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.05);
+  border-top: 5px dashed rgba(0, 0, 0, 0.05);
   width: 100%;
   height: 50%;
 }
 
 .positionTop {
   top: 0;
+  border-top: none;
+  border-bottom: 5px dashed rgba(0, 0, 0, 0.05);
 }

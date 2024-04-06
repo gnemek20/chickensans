@@ -6,7 +6,10 @@ interface componentProps {
 
 const divideLayer = (props: componentProps) => {
   return (
-    <div className={`${style.divideLayer} ${props.top && style.positionTop}`}></div>
+    <>
+      <div className={style.divideLine}></div>
+      <div className={`${style.divideLayer} ${props.top && style.positionTop}`}></div>
+    </>
   )
 }
 
