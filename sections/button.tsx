@@ -28,7 +28,7 @@ const button = (props: componentProps) => {
   const [startBlurAnimation, setStartBlurAnimation] = useState<boolean>(false);
 
   const eraseMask = () => {
-    setTimeout(maskAnimation, 750);
+    maskAnimation();
   }
   const maskAnimation = () => {
     setStartMaskAnimation(true);
@@ -49,7 +49,7 @@ const button = (props: componentProps) => {
 
   return (
     <>
-      <Mask maskActive={maskActive} startMaskAnimation={startMaskAnimation} reverseMask={reverseMask}>
+      <Mask maskActive={maskActive} onClick={eraseMask} startMaskAnimation={startMaskAnimation} reverseMask={reverseMask}>
         <div className={style.buttonIcon} ref={buttonIconRef}>
           <Image
             className={`${style.buttonImage} ${style.leftButton}`}
@@ -66,7 +66,7 @@ const button = (props: componentProps) => {
         <ProductName
           className={style.productName}
           componentRef={productNameRef}
-          onAnimationEnd={eraseMask}
+          onAnimationEnd={() => setTimeout(eraseMask, 750)}
         >
           <h1>Button</h1>
         </ProductName>

@@ -42,7 +42,7 @@ const map = (props: componentProps) => {
   const [startBlurAnimation, setStartBlurAnimation] = useState<boolean>(false);
 
   const eraseMask = () => {
-    setTimeout(maskAnimation, 700);
+    maskAnimation();
   }
   const maskAnimation = () => {
     setStartMaskAnimation(true);
@@ -69,15 +69,15 @@ const map = (props: componentProps) => {
       mapCoverRef.current?.classList.remove(style.fadeInMapCover);
       mapCoverRef.current?.classList.toggle(style.fadeOutMapCover);
 
-      mapSwitchRef.current?.classList.remove(style.switchActive);
-      switchSliderRef.current?.classList.remove(style.sliderActive);
+      mapSwitchRef.current?.classList.toggle(style.switchActive);
+      switchSliderRef.current?.classList.toggle(style.sliderActive);
     }
     else {
       mapCoverRef.current?.classList.remove(style.fadeOutMapCover);
       mapCoverRef.current?.classList.toggle(style.fadeInMapCover);
-
-      mapSwitchRef.current?.classList.toggle(style.switchActive);
-      switchSliderRef.current?.classList.toggle(style.sliderActive);
+      
+      mapSwitchRef.current?.classList.remove(style.switchActive);
+      switchSliderRef.current?.classList.remove(style.sliderActive);
     }
 
     setIsMapCoverShowing(!isMapCoverShowing);
@@ -105,7 +105,7 @@ const map = (props: componentProps) => {
 
   return (
     <>
-      <Mask maskActive={maskActive} startMaskAnimation={startMaskAnimation}>
+      <Mask maskActive={maskActive} onClick={eraseMask} startMaskAnimation={startMaskAnimation}>
         <div className={style.mapIcon}>
           <Image
             className={style.board}
@@ -125,7 +125,7 @@ const map = (props: componentProps) => {
         <ProductName
           className={style.productName}
           componentRef={productNameRef}
-          onAnimationEnd={eraseMask}
+          onAnimationEnd={() => setTimeout(eraseMask, 700)}
         >
           <h1>Map</h1>
         </ProductName>

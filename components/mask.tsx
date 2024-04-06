@@ -6,7 +6,8 @@ interface componentProps {
   maskActive: boolean,
   startMaskAnimation: boolean,
   reverseMask?: boolean,
-  onAnimationEnd?: Function
+  onAnimationEnd?: Function,
+  onClick?: Function
 }
 
 const mask = (props: componentProps) => {
@@ -36,7 +37,7 @@ const mask = (props: componentProps) => {
   }, [props.maskActive]);
 
   return (
-    <div className={style.mask} ref={maskRef} onAnimationEnd={onMaskAnimationEnd}>
+    <div className={style.mask} ref={maskRef} onClick={() => props.onClick && props.onClick()} onAnimationEnd={onMaskAnimationEnd}>
       <div className={style.maskAnimation} ref={maskAnimationRef}>
         { props.children }
       </div>

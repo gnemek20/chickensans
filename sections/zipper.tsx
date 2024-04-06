@@ -34,7 +34,7 @@ const zipper = (props: componentProps) => {
   const [startBlurAnimation, setStartBlurAnimation] = useState<boolean>(false);
 
   const eraseMask = () => {
-    setTimeout(maskAnimation, 600);
+    maskAnimation();
   }
   const maskAnimation = () => {
     setStartMaskAnimation(true);
@@ -42,10 +42,12 @@ const zipper = (props: componentProps) => {
   }
 
   const showIntroduce = () => {
-    introduceNameRef.current?.classList.toggle(style.introduceNameSlideIn);
-    introduceDescriptionRef.current?.classList.toggle(style.introduceDescriptionSlideIn);
-    dummyBackgroundRef.current?.classList.toggle(style.dummyBackgroundSlideIn);
-    introduceImageRef.current?.classList.toggle(style.introduceImageSlideIn);
+    if (!introduceNameRef.current?.classList.contains(style.introduceNameSlideIn)) {
+      introduceNameRef.current?.classList.toggle(style.introduceNameSlideIn);
+      introduceDescriptionRef.current?.classList.toggle(style.introduceDescriptionSlideIn);
+      dummyBackgroundRef.current?.classList.toggle(style.dummyBackgroundSlideIn);
+      introduceImageRef.current?.classList.toggle(style.introduceImageSlideIn);
+    }
   }
 
   useEffect(() => {
@@ -56,7 +58,7 @@ const zipper = (props: componentProps) => {
 
   return(
     <>
-      <Mask maskActive={maskActive} startMaskAnimation={startMaskAnimation} onAnimationEnd={showIntroduce}>
+      <Mask maskActive={maskActive} onClick={eraseMask} startMaskAnimation={startMaskAnimation} onAnimationEnd={showIntroduce}>
         <div className={style.lineContainer}>
           <Image
             className={`${style.line} ${style.leftLine}`}
@@ -70,7 +72,7 @@ const zipper = (props: componentProps) => {
           ></Image>
         </div>
         <ProductName className={style.productName}>
-          <h1 onAnimationEnd={eraseMask}>Zipper</h1>
+          <h1 onAnimationEnd={() => setTimeout(eraseMask, 600)}>Zipper</h1>
         </ProductName>
       </Mask>
       <Background white>
