@@ -20,7 +20,7 @@
   border-bottom: 5px dashed rgba(0, 0, 0, 0.05);
 }
 
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
   .divideLine {
     border: 3px dashed rgba(0, 0, 0, 0.05);
   }
@@ -31,4 +31,4 @@
     border-top: none;
     border-bottom: 3px dashed rgba(0, 0, 0, 0.05);
   }
-}
+} */
