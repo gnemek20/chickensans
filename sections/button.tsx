@@ -97,7 +97,7 @@ const button = (props: componentProps) => {
             <h1>Gesture to Open the World</h1>
             <p>절대로 해지지 않는 단단한 단추를 제공해 드립니다.</p>
           </EmphasizeProduct>
-          <DivideLayer top></DivideLayer>
+          <DivideLayer top percent={55}></DivideLayer>
           <div className={style.introduceText}>
             <h1 className={style.introduceName} ref={introduceNameRef}>Snap Button</h1>
             <div className={style.introduceDescription} ref={introduceDescriptionRef}>
