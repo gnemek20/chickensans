@@ -55,7 +55,7 @@
     width: 50px;
     height: 28px;
   }
-  .buttonImage {
+  .buttonIcon > .icon {
     width: 28px;
     height: 28px;
   }
@@ -110,6 +110,13 @@
     width: 90%;
     height: 47.5%;
     animation-delay: 0ms;
+  }
+
+  .buttonImageSlideIn {
+    animation-name: buttonImageSlideIn;
+    animation-duration: 2000ms;
+    animation-fill-mode: forwards;
+    animation-delay: 750ms;
   }
 }
 
@@ -166,14 +173,14 @@
 @media screen and (max-width: 767px) {
   .introduceName {
     transform: translate(0, -50%) translateY(10%);
-    top: 25%;
+    top: 20%;
     left: 5%;
     right: auto;
     font-size: var(--mobile-normal-height);
   }
   .introduceDescription {
     transform: translateX(0) translateY(10%);
-    top: 30%;
+    top: 25%;
     left: 5%;
     right: auto;
     font-size: var(--mobile-light-height);
@@ -181,7 +188,7 @@
 
   .introduceNameSlideIn {
     animation: introduceNameSlideIn 2000ms forwards;
-    animation-delay: 450ms;
+    animation-delay: 0ms;
   }
   @keyframes introduceNameSlideIn {
     50% {
@@ -194,7 +201,7 @@
   }
   .introduceDescriptionSlideIn {
     animation: introduceDescriptionSlideIn 1500ms forwards;
-    animation-delay: 700ms;
+    animation-delay: 250ms;
   }
   @keyframes introduceDescriptionSlideIn {
     50% {
