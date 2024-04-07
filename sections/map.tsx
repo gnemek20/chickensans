@@ -35,6 +35,8 @@ const map = (props: componentProps) => {
   const mapSwitchRef = useRef<HTMLDivElement>(null);
   const switchSliderRef = useRef<HTMLDivElement>(null);
 
+  const [pageWidth, setPageWidth] = useState<number>(768);
+
   const [isMapCoverShowing, setIsMapCoverShowing] = useState<boolean>(true);
 
   const [maskActive, setMaskActive] = useState<boolean>(false);
@@ -84,7 +86,10 @@ const map = (props: componentProps) => {
   }
 
   useEffect(() => {
-    if (props.active) setMaskActive(true);
+    if (props.active) {
+      setMaskActive(true);
+      setPageWidth(window.innerWidth);
+    }
   }, [props.active]);
 
   useEffect(() => {
@@ -136,7 +141,7 @@ const map = (props: componentProps) => {
             <h1>찾아오시는 길</h1>
             <p>서울특별시 종로구 김상옥로 59, 한아빌딩 3층</p>
           </EmphasizeProduct>
-          <DivideLayer></DivideLayer>
+          <DivideLayer percent={pageWidth < 768 ? 75 : 50}></DivideLayer>
           <div className={style.introduce}>
             <div className={style.mapShadow}></div>
             <div

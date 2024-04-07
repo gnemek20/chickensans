@@ -13,8 +13,11 @@ const divideLayer = (props: componentProps) => {
   useEffect(() => {
     if (!props.percent) return;
 
-    divideLineRef.current?.style.setProperty('top', `${props.percent}%`);
-    divideLayerRef.current?.style.setProperty('height', `${props.percent}%`);
+    const lineTop = props.top ? props.percent : 100 - props.percent;
+    const layerHeight = props.percent;
+
+    divideLineRef.current?.style.setProperty('top', `${lineTop}%`);
+    divideLayerRef.current?.style.setProperty('height', `${layerHeight}%`);
   }, [props.percent]);
 
   return (

@@ -33,6 +33,8 @@ const button = (props: componentProps) => {
   const introduceNameRef = useRef<HTMLHeadingElement>(null);
   const introduceDescriptionRef = useRef<HTMLDivElement>(null);
 
+  const [pageWidth, setPageWidth] = useState<number>(768);
+
   const [maskActive, setMaskActive] = useState<boolean>(false);
   const [startMaskAnimation, setStartMaskAnimation] = useState<boolean>(false);
   const [reverseMask, setReverseMask] = useState<boolean>(false);
@@ -64,6 +66,7 @@ const button = (props: componentProps) => {
   useEffect(() => {
     if (props.active) {
       setMaskActive(true);
+      setPageWidth(window.innerWidth);
     }
   }, [props.active]);
 
@@ -97,7 +100,7 @@ const button = (props: componentProps) => {
             <h1>Gesture to Open the World</h1>
             <p>절대로 해지지 않는 단단한 단추를 제공해 드립니다.</p>
           </EmphasizeProduct>
-          <DivideLayer top percent={57.5}></DivideLayer>
+          <DivideLayer top percent={pageWidth < 768 ? 57.5 : 50}></DivideLayer>
           <div className={style.introduceText}>
             <h1 className={style.introduceName} ref={introduceNameRef}>Snap Button</h1>
             <div className={style.introduceDescription} ref={introduceDescriptionRef}>
