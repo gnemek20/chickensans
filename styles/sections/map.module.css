@@ -205,15 +205,15 @@
 
 @media screen and (max-width: 767px) {
   .map {
-    top: 50%;
+    top: 47.5%;
     height: 40%;
   }
   .mapCover {
-    top: 50%;
+    top: 47.5%;
     height: 40%;
   }
   .mapShadow {
-    top: calc(50% + 10px);
+    top: calc(47.5% + 10px);
     height: 40%;
   }
   .mapCover h1 {
@@ -221,7 +221,7 @@
   }
 
   .mapOption {
-    top: 40%;
+    top: 37.5%;
   }
   .mapOption > .switch {
     width: 40px;
