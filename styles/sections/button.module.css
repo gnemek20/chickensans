@@ -22,7 +22,7 @@
   justify-content: center;
   transition: all 250ms;
 }
-.buttonImage {
+.buttonIcon > .icon {
   opacity: 0;
   position: absolute;
   filter: invert(1);
@@ -58,5 +58,151 @@
   .buttonImage {
     width: 28px;
     height: 28px;
+  }
+}
+
+.buttonImage {
+  opacity: 0;
+  position: absolute;
+  transform: translate(5%, 10%);
+  left: 12.5%;
+  bottom: 0;
+  object-fit: cover;
+  width: 45%;
+  height: 65%;
+}
+.buttonImageShadow {
+  opacity: 0;
+  position: absolute;
+  transform: translateY(10%);
+  left: 5%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  width: 45%;
+  height: 75%;
+  animation-delay: 200ms;
+}
+
+.buttonImageSlideIn {
+  animation-name: buttonImageSlideIn;
+  animation-duration: 2000ms;
+  animation-fill-mode: forwards;
+}
+@keyframes buttonImageSlideIn {
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 100%;
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .buttonImage {
+    transform: translate(0, 10%);
+    left: 0;
+    width: 90%;
+    height: 45%;
+  }
+  .buttonImageShadow {
+    left: 5%;
+    width: 90%;
+    height: 47.5%;
+    animation-delay: 0ms;
+  }
+}
+
+.introduceText {
+  position: relative;
+  max-width: 1350px;
+  width: 100%;
+  height: 100%;
+}
+.introduceName {
+  opacity: 0;
+  position: absolute;
+  transform: translate(100%, -50%) translateY(30%);
+  top: 45%;
+  right: 35%;
+}
+.introduceDescription {
+  opacity: 0;
+  position: absolute;
+  transform: translateX(100%) translateY(10%);
+  top: 53.5%;
+  right: 35%;
+  font-size: var(--pc-light-height);
+  text-align: start;
+}
+
+.introduceNameSlideIn {
+  animation: introduceNameSlideIn 2000ms forwards;
+  animation-delay: 450ms;
+}
+@keyframes introduceNameSlideIn {
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 100%;
+    transform: translate(100%, -50%);
+  }
+}
+.introduceDescriptionSlideIn {
+  animation: introduceDescriptionSlideIn 1500ms forwards;
+  animation-delay: 700ms;
+}
+@keyframes introduceDescriptionSlideIn {
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(100%);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .introduceName {
+    transform: translate(0, -50%) translateY(10%);
+    top: 25%;
+    left: 5%;
+    right: auto;
+    font-size: var(--mobile-normal-height);
+  }
+  .introduceDescription {
+    transform: translateX(0) translateY(10%);
+    top: 30%;
+    left: 5%;
+    right: auto;
+    font-size: var(--mobile-light-height);
+  }
+
+  .introduceNameSlideIn {
+    animation: introduceNameSlideIn 2000ms forwards;
+    animation-delay: 450ms;
+  }
+  @keyframes introduceNameSlideIn {
+    50% {
+      opacity: 100%;
+    }
+    100% {
+      opacity: 100%;
+      transform: translate(0, -50%);
+    }
+  }
+  .introduceDescriptionSlideIn {
+    animation: introduceDescriptionSlideIn 1500ms forwards;
+    animation-delay: 700ms;
+  }
+  @keyframes introduceDescriptionSlideIn {
+    50% {
+      opacity: 100%;
+    }
+    100% {
+      opacity: 100%;
+      transform: translateX(0);
+    }
   }
 }

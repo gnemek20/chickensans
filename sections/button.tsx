@@ -19,8 +19,19 @@ const button = (props: componentProps) => {
     alt: 'buttonIcon'
   }
 
+  const buttonImage: imageProps = {
+    src: require('@/public/images/button.jpg'),
+    alt: 'buttonImage'
+  }
+
   const buttonIconRef = useRef<HTMLDivElement>(null);
   const productNameRef = useRef<HTMLDivElement>(null);
+
+  const buttonImageRef = useRef<HTMLImageElement>(null);
+  const buttonImageShadowRef = useRef<HTMLDivElement>(null);
+
+  const introduceNameRef = useRef<HTMLHeadingElement>(null);
+  const introduceDescriptionRef = useRef<HTMLDivElement>(null);
 
   const [maskActive, setMaskActive] = useState<boolean>(false);
   const [startMaskAnimation, setStartMaskAnimation] = useState<boolean>(false);
@@ -41,6 +52,15 @@ const button = (props: componentProps) => {
     productNameRef.current?.classList.toggle(style.productNameFadeIn);
   }
 
+  const showIntroduce = () => {
+    if (!buttonImageRef.current?.classList.contains(style.buttonImageSlideIn)) {
+      buttonImageRef.current?.classList.toggle(style.buttonImageSlideIn);
+      buttonImageShadowRef.current?.classList.toggle(style.buttonImageSlideIn);
+      introduceNameRef.current?.classList.toggle(style.introduceNameSlideIn);
+      introduceDescriptionRef.current?.classList.toggle(style.introduceDescriptionSlideIn);
+    }
+  }
+
   useEffect(() => {
     if (props.active) {
       setMaskActive(true);
@@ -49,15 +69,15 @@ const button = (props: componentProps) => {
 
   return (
     <>
-      <Mask maskActive={maskActive} onClick={eraseMask} startMaskAnimation={startMaskAnimation} reverseMask={reverseMask}>
+      <Mask maskActive={maskActive} onClick={eraseMask} startMaskAnimation={startMaskAnimation} reverseMask={reverseMask} onAnimationEnd={showIntroduce}>
         <div className={style.buttonIcon} ref={buttonIconRef}>
           <Image
-            className={`${style.buttonImage} ${style.leftButton}`}
+            className={`${style.icon} ${style.leftButton}`}
             src={buttonIcon.src}
             alt={buttonIcon.alt}
           ></Image>
           <Image
-            className={`${style.buttonImage} ${style.rightButton}`}
+            className={`${style.icon} ${style.rightButton}`}
             src={buttonIcon.src}
             alt={buttonIcon.alt}
             onAnimationEnd={startReversingMask}
@@ -78,6 +98,23 @@ const button = (props: componentProps) => {
             <p>절대로 해지지 않는 단단한 단추를 제공해 드립니다.</p>
           </EmphasizeProduct>
           <DivideLayer top></DivideLayer>
+          <div className={style.introduceText}>
+            <h1 className={style.introduceName} ref={introduceNameRef}>Snap Button</h1>
+            <div className={style.introduceDescription} ref={introduceDescriptionRef}>
+              <p>마찬가지로 텍스트를 채우면 됩니다.</p>
+              <p>여러 문장으로 채워주세요.</p>
+              <br />
+              <p>문장이 길수록 좀 더 이쁘게 보여요!</p>
+              <p>텍스트 크기 조절도 가능합니다.</p>
+            </div>
+          </div>
+          <div className={style.buttonImageShadow} ref={buttonImageShadowRef}></div>
+          <Image
+            className={style.buttonImage}
+            ref={buttonImageRef}
+            src={buttonImage.src}
+            alt={buttonImage.alt}
+          ></Image>
         </Blur>
       </Background>
       <EmphasizeScroll black></EmphasizeScroll>

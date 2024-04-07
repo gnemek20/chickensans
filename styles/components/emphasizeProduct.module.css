@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 767px) {
   .emphasizeProduct {
-    top: 15%;
+    top: 12.5%;
   }
   .emphasizeProduct h1 {
     font-size: var(--mobile-normal-height);
