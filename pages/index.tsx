@@ -97,6 +97,7 @@ export default function Home() {
 
     setPageWidth(pageWidth);
     setPageHeight(pageHeight);
+    window.alert('check')
   }
 
   useEffect(() => {
