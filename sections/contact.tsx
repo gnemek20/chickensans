@@ -60,11 +60,13 @@ const contact = (props: componentProps) => {
 
       if (userAgent.includes('iphone') || userAgent.includes('android')) {
         document.body.style.setProperty('overflow-y', 'hidden');
+        document.body.style.setProperty('touch-action', 'none');
       }
     }
     else {
       if (userAgent.includes('iphone') || userAgent.includes('android')) {
         document.body.style.setProperty('overflow-y', 'scroll');
+        document.body.style.setProperty('touch-action', 'auto');
       }
     }
   }, [props.active]);
