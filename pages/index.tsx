@@ -43,8 +43,6 @@ export default function Home() {
     else if (event.deltaY < 0) changeSection('up');
   }
   const recordTouchedY = (event: React.TouchEvent<HTMLDivElement>) => {
-    if (document.body.scrollTop !== 0) window.scrollTo(0, 0);
-    
     setTouchStartY(event.touches[0].clientY);
   }
   const classifyDragDirection = (event: React.TouchEvent<HTMLDivElement>) => {
@@ -75,8 +73,6 @@ export default function Home() {
     setCurrentSectionNumber(nextSectionNumber);
   }
   const moveSection = (height: number, index: number) => {
-    if (document.body.scrollTop !== 0) window.scrollTo(0, 0);
-
     const section = height * index;
     containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
   }
@@ -102,6 +98,9 @@ export default function Home() {
     setPageWidth(pageWidth);
     setPageHeight(pageHeight);
   }
+  const scrolling = () => {
+    window.alert(`scrolled! ${containerRef.current?.scrollTop}`);
+  }
 
   useEffect(() => {
     moveSection(pageHeight, currentSectionNumber);
@@ -111,6 +110,7 @@ export default function Home() {
     history.scrollRestoration = "manual";
 
     window.addEventListener('resize', resizePageHeight);
+    window.addEventListener('scroll', scrolling)
     resizePageHeight();
   }, []);
 
