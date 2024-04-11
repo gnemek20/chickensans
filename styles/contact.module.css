@@ -1,3 +1,10 @@
+.page {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
 .maskIcon {
   position: relative;
   filter: invert(1);
@@ -59,9 +66,6 @@
 }
 
 .contactForm {
-  overflow-y: scroll;
-  height: 200vh;
-  touch-action: none;
   z-index: 10;
   position: absolute;
   top: 22.5%;

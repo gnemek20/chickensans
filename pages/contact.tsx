@@ -1,15 +1,10 @@
 import { Background, Blur, DivideLayer, EmphasizeProduct, Footer, Mask, NecessaryText, Notifier, TextLoading } from "@/components";
-import style from "@/styles/sections/contact.module.css";
+import style from "@/styles/contact.module.css";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-interface componentProps {
-  active: boolean,
-  lockMoveSection: Function
-}
-
-const contact = (props: componentProps) => {
+const contact = () => {
   interface imageProps {
     src: StaticImport,
     alt: string
@@ -37,30 +32,15 @@ const contact = (props: componentProps) => {
     setStartBlurAnimation(true);
   }
 
-  const lockMoveSection = (status: boolean) => {
-    if (formAreaRef.current?.scrollTop === 0) {
-      props.lockMoveSection(false);
-    }
-    else {
-      props.lockMoveSection(status);
-    }
-  }
-
   useEffect(() => {
     if (isProductNameShowing) {
       setTimeout(eraseMask, 850);
     }
   }, [isProductNameShowing]);
 
-  useEffect(() => {
-    if (!props.active) {
-      props.lockMoveSection(false);
-    }
-  }, [props.active]);
-
   return (
-    <>
-      <Mask maskActive={props.active} onClick={eraseMask} startMaskAnimation={startMaskAnimation}>
+    <div className={style.page}>
+      <Mask maskActive onClick={eraseMask} startMaskAnimation={startMaskAnimation}>
         <div className={style.maskIcon}>
           <Image
             className={style.upperChat}
@@ -79,7 +59,7 @@ const contact = (props: componentProps) => {
             <h1 className={style.productName}>Contact</h1>
           )
           : (
-            <TextLoading active={props.active && !isProductNameShowing}></TextLoading> 
+            <TextLoading active={!isProductNameShowing}></TextLoading> 
           )
         }
       </Mask>
@@ -106,10 +86,6 @@ const contact = (props: componentProps) => {
                 rows={10}
                 placeholder="자유롭게 내용을 입력해주세요."
                 spellCheck={false}
-                onTouchStart={() => lockMoveSection(true)}
-                onTouchEnd={() => lockMoveSection(false)}
-                onScroll={() => lockMoveSection(true)}
-                onMouseLeave={() => lockMoveSection(false)}
               ></textarea>
             </div>
             <button className={style.formSubmit} onClick={() => setIsCompletedPost(!isCompletedPost)}>등록하기</button>
@@ -118,7 +94,7 @@ const contact = (props: componentProps) => {
       </Background>
       <Notifier isShowing={isCompletedPost}>등록되었습니다.</Notifier>
       <Footer componentRef={footerRef}></Footer>
-    </>
+    </div>
   )
 }
 
