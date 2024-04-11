@@ -71,8 +71,8 @@ export default function Home() {
       nextSectionNumber = currentSectionNumber + 1;
     }
     
-    moveSection(pageHeight, nextSectionNumber);
     setIsMoving(true);
+    moveSection(pageHeight, nextSectionNumber);
     setCurrentSectionNumber(nextSectionNumber);
   }
   const moveSection = (height: number, index: number) => {
