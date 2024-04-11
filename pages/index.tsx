@@ -73,6 +73,8 @@ export default function Home() {
     moveSection(pageHeight, nextSectionNumber, direction);
   }
   const moveSection = (pageHeight: number, index: number, direction: direction) => {
+    if (containerRef.current?.classList.contains(style.fadeOut)) return;
+
     if (index === lastSectionNumber) {
       if (direction !== 'resize') {
         containerRef.current?.classList.remove(style.fadeIn);
