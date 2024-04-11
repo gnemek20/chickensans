@@ -78,7 +78,7 @@ export default function Home() {
   const moveSection = (height: number, index: number) => {
     if (isMobile) {
       containerRef.current?.style.setProperty('transition', `none`);
-      
+
       if (index === 4) {
         document.body.style.setProperty('overflow-y', 'scroll');
         document.body.style.setProperty('touch-action', 'auto');
@@ -93,6 +93,10 @@ export default function Home() {
         const section = height * index;
         containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
         window.scrollTo(0, 0);
+      }
+      else {
+        const section = height * index;
+        containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
       }
     }
     else {
