@@ -87,6 +87,7 @@
   padding: 5px;
   background-color: transparent;
   width: calc(100% - 12px);
+  font-size: 14px;
 }
 .contactForm div > textarea {
   border: none;
@@ -97,6 +98,7 @@
   resize: none;
   overflow-y: scroll;
   touch-action: auto;
+  font-size: 14px;
 }
 .formSubmit {
   cursor: pointer;
@@ -104,6 +106,7 @@
   border-radius: 5px;
   padding: 5px;
   color: black;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 767px) {
