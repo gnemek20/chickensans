@@ -59,6 +59,7 @@
 }
 
 .contactForm {
+  overflow-y: scroll;
   z-index: 10;
   position: absolute;
   top: 22.5%;
