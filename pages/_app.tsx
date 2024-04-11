@@ -7,6 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <meta  name="viewport" content="initial-scale=1.0, user-scalable=no" />
         <title>대양ING</title>
       </Head>
       <Script

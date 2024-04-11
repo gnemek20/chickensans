@@ -1,4 +1,4 @@
-import { Background, Blur, DivideLayer, Footer, Mask, TextLoading } from "@/components";
+import { Background, Blur, DivideLayer, EmphasizeProduct, Footer, Mask, NecessaryText, Notifier, TextLoading } from "@/components";
 import style from "@/styles/sections/contact.module.css";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useEffect, useRef, useState } from "react";
@@ -24,6 +24,8 @@ const contact = (props: componentProps) => {
   const [startMaskAnimation, setStartMaskAnimation] = useState<boolean>(false);
   const [startBlurAnimation, setStartBlurAnimation] = useState<boolean>(false);
   const [isProductNameShowing, setIsProductNameShowing] = useState<boolean>(false);
+
+  const [isCompletedPost, setIsCompletedPost] = useState<boolean>(false);
 
   const eraseMask = () => {
     maskAnimation();
@@ -66,9 +68,29 @@ const contact = (props: componentProps) => {
       </Mask>
       <Background white>
         <Blur startBlurAnimation={startBlurAnimation}>
-          <DivideLayer top></DivideLayer>
+          <DivideLayer top percent={90}></DivideLayer>
+          <EmphasizeProduct>
+            <h1>주문 등록</h1>
+            <p>최대한 빨리 확인하여 기재해주신 연락처로 연락드리겠습니다.</p>
+          </EmphasizeProduct>
+          <div className={style.contactForm}>
+            <div>
+              <NecessaryText>이름</NecessaryText>
+              <input type="text" placeholder="Ex. 홍길동" />
+            </div>
+            <div>
+              <NecessaryText>연락처</NecessaryText>
+              <input type="text" placeholder="Ex. email@example.com / 010-XXXX-..." />
+            </div>
+            <div>
+              <p>주문 내용</p>
+              <textarea rows={10} placeholder="자유롭게 내용을 입력해주세요." spellCheck={false}></textarea>
+            </div>
+            <button className={style.formSubmit} onClick={() => setIsCompletedPost(!isCompletedPost)}>등록하기</button>
+          </div>
         </Blur>
       </Background>
+      <Notifier isShowing={isCompletedPost}>등록되었습니다.</Notifier>
       <Footer componentRef={footerRef}></Footer>
     </>
   )

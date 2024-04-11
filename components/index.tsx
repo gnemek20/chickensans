@@ -16,3 +16,4 @@ export { default as Background } from './background';
 export { default as ProductName } from './productName';
 export { default as DivideLayer } from './divideLayer';
 export { default as TextLoading } from './textLoading';
+export { default as NecessaryText } from './necessaryText';

@@ -9,6 +9,8 @@ interface componentProps {
 }
 
 const button = (props: componentProps) => {
+  type scrollColor = 'black' | 'white';
+
   interface imageProps {
     src: StaticImport,
     alt: string
@@ -39,6 +41,7 @@ const button = (props: componentProps) => {
   const [startMaskAnimation, setStartMaskAnimation] = useState<boolean>(false);
   const [reverseMask, setReverseMask] = useState<boolean>(false);
   const [startBlurAnimation, setStartBlurAnimation] = useState<boolean>(false);
+  const [scrollColor, setScrollColor] = useState<scrollColor>('black');
 
   const eraseMask = () => {
     maskAnimation();
@@ -46,6 +49,7 @@ const button = (props: componentProps) => {
   const maskAnimation = () => {
     setStartMaskAnimation(true);
     setStartBlurAnimation(true);
+    setScrollColor('white');
   }
 
   const startReversingMask = () => {
@@ -120,7 +124,7 @@ const button = (props: componentProps) => {
           ></Image>
         </Blur>
       </Background>
-      <EmphasizeScroll black></EmphasizeScroll>
+      <EmphasizeScroll black={scrollColor === 'black' ? true : false}></EmphasizeScroll>
     </>
   )
 }

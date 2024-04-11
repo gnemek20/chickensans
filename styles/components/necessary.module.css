@@ -1,0 +1,10 @@
+.text {
+  display: flex;
+}
+.text p {
+  font-size: 12px;
+}
+.text > .star {
+  margin-left: 3px;
+  color: coral !important;
+}
