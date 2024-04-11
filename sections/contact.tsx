@@ -97,7 +97,7 @@ const contact = (props: componentProps) => {
             </div>
             <div>
               <NecessaryText>연락처</NecessaryText>
-              <input type="text" placeholder="Ex. email@example.com / 010-XXXX-..." />
+              <input type="text" placeholder="Ex. email@example.com / 010-XXXX-..." inputMode="email" />
             </div>
             <div>
               <p>주문 내용</p>
