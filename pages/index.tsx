@@ -1,6 +1,6 @@
 import style from "@/styles/Home.module.css";
 import { Header } from "@/components";
-import { Button, Landing, Main, Map, MapBackup, Zipper } from "@/sections";
+import { Button, Contact, Landing, Main, Map, MapBackup, Zipper } from "@/sections";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
@@ -26,7 +26,8 @@ export default function Home() {
     Landing,
     Zipper,
     Button,
-    Map
+    Map,
+    Contact
   ]
 
   const [pageWidth, setPageWidth] = useState<number>(0);
@@ -73,8 +74,17 @@ export default function Home() {
     setCurrentSectionNumber(nextSectionNumber);
   }
   const moveSection = (height: number, index: number) => {
-    const section = height * index;
-    containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
+    if (index === lastSectionNumber) {
+      containerRef.current?.style.setProperty('transform', `translateY(0px)`);
+      window.scrollTo({ top: document.body.scrollHeight });
+    }
+    else {
+      const section = height * index;
+      containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
+    }
+
+    // const section = height * index;
+    // containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
   }
   const moveToLastSection = () => {
     const lastSectionIndex: number = sectionList.length - 1;
