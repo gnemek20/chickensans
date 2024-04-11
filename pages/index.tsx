@@ -98,6 +98,9 @@ export default function Home() {
     setPageWidth(pageWidth);
     setPageHeight(pageHeight);
   }
+  const scrolling = () => {
+    window.alert(`scrolled! ${document.body.scrollTop}`);
+  }
 
   useEffect(() => {
     moveSection(pageHeight, currentSectionNumber);
@@ -107,6 +110,7 @@ export default function Home() {
     history.scrollRestoration = "manual";
 
     window.addEventListener('resize', resizePageHeight);
+    window.addEventListener('scroll', scrolling)
     resizePageHeight();
   }, []);
 
