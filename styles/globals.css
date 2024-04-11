@@ -20,8 +20,8 @@ a:visited {
 }
 
 body {
-  /* overflow-y: hidden; */
-  /* touch-action: none; */
+  overflow-y: hidden;
+  touch-action: none;
 }
 
 :root {

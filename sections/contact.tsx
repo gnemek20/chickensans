@@ -58,6 +58,12 @@ const contact = (props: componentProps) => {
     }
   }, [props.active]);
 
+  useEffect(() => {
+    setInterval(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  }, []);
+
   return (
     <>
       <Mask maskActive={props.active} onClick={eraseMask} startMaskAnimation={startMaskAnimation}>
