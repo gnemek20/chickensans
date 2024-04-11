@@ -76,20 +76,28 @@ export default function Home() {
     setCurrentSectionNumber(nextSectionNumber);
   }
   const moveSection = (height: number, index: number) => {
-    if (isMobile && index === lastSectionNumber) {
-      document.body.style.setProperty('overflow-y', 'scroll');
-      document.body.style.setProperty('touch-action', 'auto');
+    if (isMobile) {
+      containerRef.current?.style.setProperty('transition', `none`);
       
-      window.scrollTo(0, document.body.scrollHeight);
-      containerRef.current?.style.setProperty('transform', `translateY(0)`);
+      if (index === 4) {
+        document.body.style.setProperty('overflow-y', 'scroll');
+        document.body.style.setProperty('touch-action', 'auto');
+        
+        containerRef.current?.style.setProperty('transform', `translateY(0)`);
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+      else if (index === 3) {
+        document.body.style.setProperty('overflow-y', 'hidden');
+        document.body.style.setProperty('touch-action', 'none');
+        
+        const section = height * index;
+        containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
+        window.scrollTo(0, 0);
+      }
     }
     else {
-      document.body.style.setProperty('overflow-y', 'hidden');
-      document.body.style.setProperty('touch-action', 'none');
-      
       const section = height * index;
       containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
-      window.scrollTo(0, 0);
     }
 
   }
