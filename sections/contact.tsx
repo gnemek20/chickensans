@@ -52,6 +52,12 @@ const contact = (props: componentProps) => {
     }
   }, [isProductNameShowing]);
 
+  useEffect(() => {
+    if (!props.active) {
+      props.lockMoveSection(false);
+    }
+  }, [props.active]);
+
   return (
     <>
       <Mask maskActive={props.active} onClick={eraseMask} startMaskAnimation={startMaskAnimation}>
@@ -102,7 +108,7 @@ const contact = (props: componentProps) => {
                 spellCheck={false}
                 onTouchStart={() => lockMoveSection(true)}
                 onTouchEnd={() => lockMoveSection(false)}
-                onMouseEnter={() => lockMoveSection(true)}
+                onScroll={() => lockMoveSection(true)}
                 onMouseLeave={() => lockMoveSection(false)}
               ></textarea>
             </div>
