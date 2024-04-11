@@ -98,9 +98,17 @@ export default function Home() {
     setPageWidth(pageWidth);
     setPageHeight(pageHeight);
   }
+
+  const [a, sa] = useState<boolean>(false);
   const scrolling = () => {
-    window.alert(`scrolled! ${containerRef.current?.scrollTop}`);
+    sa(true);
   }
+  useEffect(() => {
+    if (a) {
+      window.alert(`scrolled body: ${document.body.scrollTop} cont: ${containerRef.current?.scrollTop}`);
+      sa(false);
+    }
+  }, [a]);
 
   useEffect(() => {
     moveSection(pageHeight, currentSectionNumber);
