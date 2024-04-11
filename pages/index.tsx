@@ -97,7 +97,6 @@ export default function Home() {
 
     setPageWidth(pageWidth);
     setPageHeight(pageHeight);
-    window.alert('check')
   }
 
   useEffect(() => {
@@ -108,6 +107,7 @@ export default function Home() {
     history.scrollRestoration = "manual";
 
     window.addEventListener('resize', resizePageHeight);
+    window.addEventListener('scroll', () => {console.log('scrolled')});
     resizePageHeight();
   }, []);
 
