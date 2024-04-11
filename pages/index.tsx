@@ -80,9 +80,11 @@ export default function Home() {
       containerRef.current?.style.setProperty('transform', `translateY(0)`);
       window.scrollTo(0, document.body.scrollHeight);
     }
+    else {
+      const section = height * index;
+      containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
+    }
 
-    // const section = height * index;
-    // containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
   }
   const moveToLastSection = () => {
     const lastSectionIndex: number = sectionList.length - 1;
