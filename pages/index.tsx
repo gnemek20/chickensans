@@ -73,8 +73,8 @@ export default function Home() {
     setCurrentSectionNumber(nextSectionNumber);
   }
   const moveSection = (height: number, index: number) => {
-    // const section = height * index;
-    // containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
+    const section = height * index;
+    containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
   }
   const moveToLastSection = () => {
     const lastSectionIndex: number = sectionList.length - 1;
