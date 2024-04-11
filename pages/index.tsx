@@ -78,6 +78,7 @@ export default function Home() {
   const moveSection = (height: number, index: number) => {
     if (isMobile) {
       containerRef.current?.style.setProperty('transition', `none`);
+      setIsMoving(false);
 
       if (index === 4) {
         document.body.style.setProperty('overflow-y', 'scroll');
