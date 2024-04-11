@@ -47,7 +47,6 @@ const contact = (props: componentProps) => {
       <Header></Header>
       <Notifier
         isShowing={isNotifierShowing}
-        onAnimationEnd={setIsNotifierShowing}
       >
         복사 완료
       </Notifier>

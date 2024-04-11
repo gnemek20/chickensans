@@ -5,7 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface componentProps {
-  active: boolean
+  active: boolean,
+  lockMoveSection: Function
 }
 
 const contact = (props: componentProps) => {
@@ -20,6 +21,7 @@ const contact = (props: componentProps) => {
   }
 
   const footerRef = useRef<HTMLDivElement>(null);
+  const formAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const [startMaskAnimation, setStartMaskAnimation] = useState<boolean>(false);
   const [startBlurAnimation, setStartBlurAnimation] = useState<boolean>(false);
@@ -33,6 +35,15 @@ const contact = (props: componentProps) => {
   const maskAnimation = () => {
     setStartMaskAnimation(true);
     setStartBlurAnimation(true);
+  }
+
+  const lockMoveSection = (status: boolean) => {
+    if (formAreaRef.current?.scrollTop === 0) {
+      props.lockMoveSection(false);
+    }
+    else {
+      props.lockMoveSection(status);
+    }
   }
 
   useEffect(() => {
@@ -84,7 +95,15 @@ const contact = (props: componentProps) => {
             </div>
             <div>
               <p>주문 내용</p>
-              <textarea rows={10} placeholder="자유롭게 내용을 입력해주세요." spellCheck={false}></textarea>
+              <textarea
+                ref={formAreaRef}
+                rows={10}
+                placeholder="자유롭게 내용을 입력해주세요."
+                spellCheck={false}
+                onTouchStart={() => lockMoveSection(true)}
+                onTouchEnd={() => lockMoveSection(false)}
+                onScroll={() => lockMoveSection(true)}
+              ></textarea>
             </div>
             <button className={style.formSubmit} onClick={() => setIsCompletedPost(!isCompletedPost)}>등록하기</button>
           </div>
