@@ -102,7 +102,8 @@ const contact = (props: componentProps) => {
                 spellCheck={false}
                 onTouchStart={() => lockMoveSection(true)}
                 onTouchEnd={() => lockMoveSection(false)}
-                onScroll={() => lockMoveSection(true)}
+                onMouseEnter={() => lockMoveSection(true)}
+                onMouseLeave={() => lockMoveSection(false)}
               ></textarea>
             </div>
             <button className={style.formSubmit} onClick={() => setIsCompletedPost(!isCompletedPost)}>등록하기</button>
