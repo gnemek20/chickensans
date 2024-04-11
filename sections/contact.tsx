@@ -35,7 +35,7 @@ const contact = (props: componentProps) => {
 
   useEffect(() => {
     if (isProductNameShowing) {
-      setTimeout(eraseMask, 750);
+      setTimeout(eraseMask, 850);
     }
   }, [isProductNameShowing]);
 
