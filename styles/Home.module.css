@@ -9,3 +9,27 @@
   position: relative;
   overflow: hidden;
 }
+
+.fadeIn {
+  animation: fadeIn 750ms forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 250ms forwards;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0;
+  }
+}

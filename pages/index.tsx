@@ -4,7 +4,7 @@ import { Button, Contact, Landing, Main, Map, MapBackup, Zipper } from "@/sectio
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
-  type direction = 'up' | 'down';
+  type direction = 'up' | 'down' | 'resize';
 
   interface componentProps {
     // moveToLastSection: Function,
@@ -70,27 +70,49 @@ export default function Home() {
     }
     
     setIsMoving(true);
-    moveSection(pageHeight, nextSectionNumber);
-    setCurrentSectionNumber(nextSectionNumber);
+    moveSection(pageHeight, nextSectionNumber, direction);
   }
-  const moveSection = (height: number, index: number) => {
+  const moveSection = (pageHeight: number, index: number, direction: direction) => {
     if (index === lastSectionNumber) {
-      containerRef.current?.style.setProperty('transform', `translateY(0px)`);
-      window.scrollTo({ top: document.body.scrollHeight });
+      if (direction !== 'resize') {
+        containerRef.current?.classList.remove(style.fadeIn);
+        containerRef.current?.classList.toggle(style.fadeOut);
+      }
+      else {
+        window.scrollTo({ top: document.body.scrollHeight });
+      }
+      setTimeout(() => {
+        window.scrollTo({ top: document.body.scrollHeight });
+        containerRef.current?.style.setProperty('transform', `translateY(0px)`);
+      }, 250);
+      setTimeout(() => {
+        if (direction !== 'resize') {
+          containerRef.current?.classList.remove(style.fadeOut);
+          containerRef.current?.classList.toggle(style.fadeIn);
+        }
+        setCurrentSectionNumber(index);
+      }, 700);
+    }
+    else if (index === lastSectionNumber - 1 && direction === 'up') {
+      containerRef.current?.classList.remove(style.fadeIn);
+      containerRef.current?.classList.toggle(style.fadeOut);
+
+      setTimeout(() => {
+        window.scrollTo({ top: 0 });
+        const section = pageHeight * index;
+        containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
+      }, 250);
+      setTimeout(() => {
+        containerRef.current?.classList.remove(style.fadeOut);
+        containerRef.current?.classList.toggle(style.fadeIn);
+        setCurrentSectionNumber(index);
+      }, 700);
     }
     else {
-      const section = height * index;
+      const section = pageHeight * index;
       containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
+      setCurrentSectionNumber(index);
     }
-
-    // const section = height * index;
-    // containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
-  }
-  const moveToLastSection = () => {
-    const lastSectionIndex: number = sectionList.length - 1;
-    const section: number = pageHeight * lastSectionIndex;
-    containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
-    setCurrentSectionNumber(lastSectionIndex);
   }
 
   const changeIsMovingStatus = (event: React.TransitionEvent<HTMLDivElement>) => {
@@ -110,7 +132,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    moveSection(pageHeight, currentSectionNumber);
+    moveSection(pageHeight, currentSectionNumber, 'resize');
   }, [pageHeight]);
 
   useEffect(() => {
