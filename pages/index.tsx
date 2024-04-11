@@ -30,8 +30,6 @@ export default function Home() {
     Contact
   ]
 
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
   const [pageWidth, setPageWidth] = useState<number>(0);
   const [pageHeight, setPageHeight] = useState<number>(0);
 
@@ -76,35 +74,8 @@ export default function Home() {
     setCurrentSectionNumber(nextSectionNumber);
   }
   const moveSection = (height: number, index: number) => {
-    if (isMobile) {
-      containerRef.current?.style.setProperty('transition', `none`);
-      setIsMoving(false);
-
-      if (index === 4) {
-        document.body.style.setProperty('overflow-y', 'scroll');
-        document.body.style.setProperty('touch-action', 'auto');
-        
-        containerRef.current?.style.setProperty('transform', `translateY(0)`);
-        window.scrollTo(0, document.body.scrollHeight);
-      }
-      else if (index === 3) {
-        document.body.style.setProperty('overflow-y', 'hidden');
-        document.body.style.setProperty('touch-action', 'none');
-        
-        const section = height * index;
-        containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
-        window.scrollTo(0, 0);
-      }
-      else {
-        const section = height * index;
-        containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
-      }
-    }
-    else {
-      const section = height * index;
-      containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
-    }
-
+    const section = height * index;
+    containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
   }
   const moveToLastSection = () => {
     const lastSectionIndex: number = sectionList.length - 1;
@@ -138,8 +109,6 @@ export default function Home() {
 
     window.addEventListener('resize', resizePageHeight);
     resizePageHeight();
-
-    setIsMobile(navigator.userAgent.toLowerCase().includes('iphone') || navigator.userAgent.toLowerCase().includes('android'));
   }, []);
 
   return (
