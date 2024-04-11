@@ -30,6 +30,8 @@ export default function Home() {
     Contact
   ]
 
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
   const [pageWidth, setPageWidth] = useState<number>(0);
   const [pageHeight, setPageHeight] = useState<number>(0);
 
@@ -37,6 +39,9 @@ export default function Home() {
   const [currentSectionNumber, setCurrentSectionNumber] = useState<number>(0);
   const [isMoving, setIsMoving] = useState<boolean>(false);
   const [isMovingLocked, setIsMovingLocked] = useState<boolean>(false);
+
+  const firstSectionNumber: number = 0;
+  const lastSectionNumber: number = sectionList.length - 1;
 
   const classifyWheelDirection = (event: React.WheelEvent<HTMLDivElement>) => {
     if (event.deltaY > 0) changeSection('down');
@@ -55,8 +60,6 @@ export default function Home() {
   const changeSection = (direction: direction) => {
     if (isMoving || isMovingLocked) return;
 
-    const firstSectionNumber: number = 0;
-    const lastSectionNumber: number = sectionList.length - 1;
     let nextSectionNumber: number = firstSectionNumber;
     
     if (direction === 'up') {
@@ -73,6 +76,11 @@ export default function Home() {
     setCurrentSectionNumber(nextSectionNumber);
   }
   const moveSection = (height: number, index: number) => {
+    if (isMobile && index === lastSectionNumber) {
+      containerRef.current?.style.setProperty('transform', `translateY(0)`);
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
     const section = height * index;
     containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
   }
@@ -108,6 +116,8 @@ export default function Home() {
 
     window.addEventListener('resize', resizePageHeight);
     resizePageHeight();
+
+    setIsMobile(navigator.userAgent.toLowerCase().includes('iphone') || navigator.userAgent.toLowerCase().includes('android'));
   }, []);
 
   return (
