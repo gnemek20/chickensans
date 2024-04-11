@@ -23,8 +23,6 @@ const contact = (props: componentProps) => {
   const footerRef = useRef<HTMLDivElement>(null);
   const formAreaRef = useRef<HTMLTextAreaElement>(null);
 
-  const [userAgent, setUserAgent] = useState<string>('');
-
   const [startMaskAnimation, setStartMaskAnimation] = useState<boolean>(false);
   const [startBlurAnimation, setStartBlurAnimation] = useState<boolean>(false);
   const [isProductNameShowing, setIsProductNameShowing] = useState<boolean>(false);
@@ -57,23 +55,8 @@ const contact = (props: componentProps) => {
   useEffect(() => {
     if (!props.active) {
       props.lockMoveSection(false);
-
-      if (userAgent.includes('iphone') || userAgent.includes('android')) {
-        document.body.style.setProperty('overflow-y', 'hidden');
-        document.body.style.setProperty('touch-action', 'none');
-      }
-    }
-    else {
-      if (userAgent.includes('iphone') || userAgent.includes('android')) {
-        document.body.style.setProperty('overflow-y', 'scroll');
-        document.body.style.setProperty('touch-action', 'auto');
-      }
     }
   }, [props.active]);
-
-  useEffect(() => {
-    setUserAgent(navigator.userAgent.toLowerCase());
-  }, []);
 
   return (
     <>

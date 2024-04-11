@@ -77,12 +77,19 @@ export default function Home() {
   }
   const moveSection = (height: number, index: number) => {
     if (isMobile && index === lastSectionNumber) {
-      containerRef.current?.style.setProperty('transform', `translateY(0)`);
+      document.body.style.setProperty('overflow-y', 'scroll');
+      document.body.style.setProperty('touch-action', 'auto');
+      
       window.scrollTo(0, document.body.scrollHeight);
+      containerRef.current?.style.setProperty('transform', `translateY(0)`);
     }
     else {
+      document.body.style.setProperty('overflow-y', 'hidden');
+      document.body.style.setProperty('touch-action', 'none');
+      
       const section = height * index;
       containerRef.current?.style.setProperty('transform', `translateY(-${section}px)`);
+      window.scrollTo(0, 0);
     }
 
   }
