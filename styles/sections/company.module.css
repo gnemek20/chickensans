@@ -1,0 +1,29 @@
+.maskIcon {
+  position: relative;
+}
+
+.maskIcon > .spotlight {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 35px 10px;
+  transform: perspective(40px) rotateX(45deg);
+  border-radius: 3px;
+}
+.maskIcon > .company {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  filter: invert(1);
+  width: 50px;
+  height: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .maskIcon > .spotlight {
+    padding: 35px 7.5px;
+    border-radius: 2px;
+  }
+  .maskIcon > .company {
+    width: 45px;
+    height: 45px;
+  }
+}
