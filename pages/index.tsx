@@ -1,6 +1,6 @@
 import style from "@/styles/Home.module.css";
 import { Header } from "@/components";
-import { Button, Contact, Landing, Main, Map, MapBackup, Zipper } from "@/sections";
+import { Button, Company, Contact, Landing, Main, Map, MapBackup, Zipper } from "@/sections";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
@@ -26,6 +26,7 @@ export default function Home() {
     Landing,
     Zipper,
     Button,
+    Company,
     Map,
     Contact
   ]

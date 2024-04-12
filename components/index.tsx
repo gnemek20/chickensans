@@ -1,10 +1,6 @@
-export { default as BackgroundBackup } from './backgroundBackup';
-export { default as Content } from './content';
-export { default as ContentChild } from './contentChild';
 export { default as EmphasizeScroll } from './emphasizeScroll';
 export { default as Notifier } from './notifier';
 
-export { default as Header } from './header';
 export { default as Footer } from './footer';
 
 export { default as Cursor } from './cursor';
