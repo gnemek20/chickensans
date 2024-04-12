@@ -11,7 +11,7 @@
 }
 
 .fadeIn {
-  animation: fadeIn 750ms forwards;
+  animation: fadeIn 500ms forwards;
 }
 @keyframes fadeIn {
   0% {
