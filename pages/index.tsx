@@ -1,16 +1,11 @@
 import style from "@/styles/Home.module.css";
-import { Header } from "@/components";
-import { Button, Company, Contact, Landing, Main, Map, MapBackup, Zipper } from "@/sections";
+import { Button, Company, Contact, Landing, Map, Zipper } from "@/sections";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   type direction = 'up' | 'down' | 'resize';
 
   interface componentProps {
-    // moveToLastSection: Function,
-    // changeIsMovingLockedStatus: Function,
-    // isMobile: boolean,
-    // active: boolean
     active: boolean,
     onFinished: Function,
     lockMoveSection: Function
@@ -19,10 +14,6 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const sectionList: Array<(props: componentProps) => JSX.Element> = [
-    // Main,
-    // Zipper,
-    // Map,
-    // Contact
     Landing,
     Zipper,
     Button,
@@ -31,7 +22,6 @@ export default function Home() {
     Contact
   ]
 
-  const [pageWidth, setPageWidth] = useState<number>(0);
   const [pageHeight, setPageHeight] = useState<number>(0);
 
   const [touchStartY, setTouchStartY] = useState<number>(0);
@@ -127,10 +117,8 @@ export default function Home() {
   }
 
   const resizePageHeight = () => {
-    const pageWidth = window.innerWidth;
     const pageHeight = window.innerHeight;
 
-    setPageWidth(pageWidth);
     setPageHeight(pageHeight);
   }
 
