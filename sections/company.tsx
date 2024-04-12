@@ -1,4 +1,4 @@
-import { Background, Blur, Mask } from "@/components";
+import { Background, Blur, DivideLayer, EmphasizeProduct, Mask, ProductName } from "@/components";
 import style from "@/styles/sections/company.module.css";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useEffect, useState } from "react";
@@ -23,7 +23,7 @@ const company = (props: componentProps) => {
   const [startBlurAnimation, setStartBlurAnimation] = useState<boolean>(false);
 
   const eraseMask = () => {
-    // maskAnimation();
+    maskAnimation();
   }
   const maskAnimation = () => {
     setStartMaskAnimation(true);
@@ -43,9 +43,18 @@ const company = (props: componentProps) => {
             alt={companyIcon.alt}
           ></Image>
         </div>
+        <ProductName
+          className={style.productName}
+          onAnimationEnd={() => setTimeout(eraseMask, 500)}
+        >
+          <h1>
+            Company
+          </h1>
+        </ProductName>
       </Mask>
       <Background white>
         <Blur startBlurAnimation={startBlurAnimation}>
+          <DivideLayer></DivideLayer>
 
         </Blur>
       </Background>
