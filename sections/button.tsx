@@ -106,7 +106,7 @@ const button = (props: componentProps) => {
           </EmphasizeProduct>
           <DivideLayer top percent={pageWidth < 768 ? 57.5 : 50}></DivideLayer>
           <div className={style.introduceText}>
-            <h1 className={style.introduceName} ref={introduceNameRef}>Snap Button</h1>
+            <h1 className={style.introduceName} ref={introduceNameRef}>Button</h1>
             <div className={style.introduceDescription} ref={introduceDescriptionRef}>
               <p>마찬가지로 텍스트를 채우면 됩니다.</p>
               <p>여러 문장으로 채워주세요.</p>

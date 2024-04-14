@@ -84,7 +84,7 @@ const zipper = (props: componentProps) => {
           <DivideLayer></DivideLayer>
           <div className={style.introduce}>
             <div className={style.introduceText}>
-              <h1 className={style.introduceName} ref={introduceNameRef}>Coil Zipper</h1>
+              <h1 className={style.introduceName} ref={introduceNameRef}>Zipper</h1>
               <div className={style.introduceDescription} ref={introduceDescriptionRef}>
                 <p>코일 모양의 부드럽고 유연한 지퍼입니다.</p>
                 <p>여러줄의 설명이 들어갑니다.</p>

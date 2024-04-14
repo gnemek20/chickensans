@@ -85,7 +85,6 @@ const contact = (props: componentProps) => {
       </Mask>
       <Background white>
         <Blur startBlurAnimation={startBlurAnimation}>
-          {/* <DivideLayer top percent={90}></DivideLayer> */}
           <DivideLayer percent={78}></DivideLayer>
           <EmphasizeProduct>
             <h1>주문 등록</h1>

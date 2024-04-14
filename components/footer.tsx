@@ -20,25 +20,29 @@ const footer = (props: componentProps) => {
 
   const [isFooterShowing, setIsFooterShowing] = useState<boolean>(false);
 
-  const pullFooter = () => {
-    if (isFooterShowing) {
+  const pullFooter = (pull: 'up' | 'down' | 'reverse') => {
+    const footerShowing = pull === 'up' ? false : pull === 'down' ? true : !isFooterShowing;
+
+    if (footerShowing) {
       props.componentRef.current?.style.setProperty('transform', 'translateY(100%)');
     }
     else {
       props.componentRef.current?.style.setProperty('transform', 'translateY(0)');
     }
 
-    setIsFooterShowing(!isFooterShowing)
+    setIsFooterShowing(footerShowing);
   }
 
   return (
     <div
       className={style.footer}
       ref={props.componentRef}
+      onMouseLeave={() => pullFooter('down')}
     >
       <div
         className={style.pullButton}
-        onClick={pullFooter}
+        onClick={() => pullFooter('reverse')}
+        onMouseEnter={() => pullFooter('up')}
         style={{cursor: 'pointer'}}
       >
         <Image

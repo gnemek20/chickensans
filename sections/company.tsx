@@ -1,4 +1,4 @@
-import { Background, Blur, DivideLayer, EmphasizeProduct, Mask, ProductName } from "@/components";
+import { Background, Blur, DivideLayer, EmphasizeProduct, EmphasizeScroll, Mask, ProductName } from "@/components";
 import style from "@/styles/sections/company.module.css";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useEffect, useState } from "react";
@@ -54,10 +54,14 @@ const company = (props: componentProps) => {
       </Mask>
       <Background white>
         <Blur startBlurAnimation={startBlurAnimation}>
-          <DivideLayer></DivideLayer>
-
+          <DivideLayer percent={20}></DivideLayer>
+          <EmphasizeProduct>
+            <h1>Company Merit</h1>
+            <p>후회없는 선택이 되실 수 있도록 최선을 다하겠습니다.</p>
+          </EmphasizeProduct>
         </Blur>
       </Background>
+      <EmphasizeScroll black></EmphasizeScroll>
     </>
   )
 }
