@@ -1,0 +1,33 @@
+.list {
+  z-index: 20;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.section {
+  background-color: rgba(125, 125, 125, 0.5);
+  padding: 3px;
+  border-radius: 50%;
+  transition: all 500ms;
+}
+.active {
+  padding: 7px !important;
+}
+
+@media screen and (max-width: 1350px) {
+  .list {
+    right: 2%;
+  }
+  .section {
+    padding: 2px;
+  }
+  .active {
+    padding: 5px !important;
+  }
+}

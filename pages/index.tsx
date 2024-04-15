@@ -1,6 +1,7 @@
 import style from "@/styles/Home.module.css";
 import { Button, Company, Contact, Landing, Map, Zipper } from "@/sections";
 import { useEffect, useRef, useState } from "react";
+import { Sidebar } from "@/components";
 
 export default function Home() {
   type direction = 'up' | 'down' | 'resize';
@@ -135,6 +136,7 @@ export default function Home() {
 
   return (
     <>
+      <Sidebar activedSection={currentSectionNumber}></Sidebar>
       <div
         className={style.container}
         ref={containerRef}
